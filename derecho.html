@@ -1,1 +1,577 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Derecho Arcade · UdeSA</title>
+<style>
+:root{
+ --ink:#1d2630;--muted:#66717b;--paper:#f5efe2;--paper2:#ebe0cd;--navy:#182d40;
+ --blue:#315a78;--gold:#b28a45;--red:#8c3d35;--green:#2f765d;--line:#d6c6aa;
+ --white:#fffaf0;--shadow:0 10px 30px rgba(48,37,20,.12)
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+background:
+radial-gradient(circle at 10% 15%,rgba(128,94,47,.10),transparent 25%),
+radial-gradient(circle at 90% 80%,rgba(49,90,120,.10),transparent 28%),
+repeating-linear-gradient(0deg,rgba(74,52,25,.018) 0 1px,transparent 1px 5px),
+#e8ddca}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;
+background:
+linear-gradient(90deg,transparent 0 8%,rgba(80,57,30,.07) 8.1% 8.2%,transparent 8.3% 91.7%,rgba(80,57,30,.07) 91.8% 91.9%,transparent 92%),
+radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.5),transparent 50%);
+z-index:-1}
+.app{min-height:100vh;display:flex}
+.sidebar{position:fixed;z-index:20;left:0;top:0;bottom:0;width:265px;padding:18px 14px;
+background:linear-gradient(180deg,#172a3b,#102231 70%,#0e1c27);color:#f6f0e3;overflow:auto;
+box-shadow:5px 0 25px rgba(31,25,17,.22)}
+.brand{padding:13px 13px 18px;border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:10px}
+.brand .ey{font-size:11px;letter-spacing:.16em;color:#d7b76f;font-weight:800}.brand h1{font-family:Georgia,serif;margin:7px 0 0;font-size:25px}
+.nav{display:grid;gap:3px}.nav button{border:0;background:transparent;color:#dce4e9;padding:11px 12px;border-radius:9px;text-align:left;font-weight:700;cursor:pointer}
+.nav button:hover,.nav button.active{background:#28465e;color:#fff}
+.nav button .n{display:inline-block;width:25px}
+.side-progress{margin-top:16px;padding:14px;border:1px solid rgba(255,255,255,.12);border-radius:13px;background:rgba(255,255,255,.045)}
+.side-progress small{color:#b9c5cc}.big{font-size:31px;font-weight:850;margin-top:3px}.bar{height:7px;background:#324452;border-radius:99px;overflow:hidden;margin:8px 0}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#d2ad5c,#6fa88d)}
+.main{margin-left:265px;width:calc(100% - 265px);padding:24px 32px 60px;max-width:1700px}
+.view{display:none}.view.active{display:block}
+.hero{position:relative;overflow:hidden;min-height:365px;padding:42px;border-radius:18px;border:1px solid #cdbb9c;box-shadow:var(--shadow);
+background:
+linear-gradient(90deg,rgba(245,239,226,.97) 0 53%,rgba(245,239,226,.80) 67%,rgba(245,239,226,.38)),
+url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='400' viewBox='0 0 900 400'%3E%3Crect width='900' height='400' fill='%23d9cbb1'/%3E%3Cg opacity='.42' fill='none' stroke='%235e513e' stroke-width='2'%3E%3Cpath d='M540 320h290M570 320V170h230v150M550 170l135-85 135 85M600 170v-42h170v42M620 320V225h45v95M690 320V225h45v95'/%3E%3Ccircle cx='685' cy='45' r='22'/%3E%3Cpath d='M685 23v44M663 45h44'/%3E%3C/g%3E%3Cg opacity='.18' stroke='%238c3d35' stroke-width='18'%3E%3Cpath d='M720 0v400M800 0v400'/%3E%3C/g%3E%3C/svg%3E");
+background-size:cover;background-position:center}
+.hero:after{content:"⚖  🇦🇷  📜  📚";position:absolute;right:30px;bottom:18px;font-size:45px;opacity:.16;letter-spacing:10px}
+.ey{display:inline-block;background:#243d51;color:#e6c878;border-radius:999px;padding:7px 12px;font-size:11px;font-weight:850;letter-spacing:.12em}
+.hero h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(44px,6vw,78px);line-height:.92;margin:20px 0 13px;max-width:850px}
+.hero h2 span{color:var(--red)}
+.hero p{font-family:Georgia,serif;max-width:830px;color:#4d5861;font-size:18px;line-height:1.6}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}
+.btn{border:1px solid #bba985;background:#f7f0e1;color:#243341;border-radius:9px;padding:11px 15px;font-weight:800;cursor:pointer}
+.btn.primary{background:#294c66;color:#fff;border-color:#294c66}.btn.gold{background:#b28a45;color:#fff;border-color:#b28a45}.btn.red{background:#8c3d35;color:#fff;border-color:#8c3d35}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin:18px 0}
+.tile{background:rgba(250,246,236,.92);border:1px solid var(--line);border-radius:14px;padding:17px;box-shadow:0 4px 14px rgba(53,42,25,.07)}
+.tile .ico{font-size:25px}.tile h3{font-family:Georgia,serif;margin:8px 0 6px;font-size:20px}.tile p{color:var(--muted);margin:0;line-height:1.45}
+.panel{background:rgba(250,246,236,.94);border:1px solid var(--line);border-radius:16px;padding:21px;box-shadow:0 6px 18px rgba(53,42,25,.07);margin:18px 0}
+.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:15px}.panel h2{font-family:Georgia,serif;margin:0;font-size:28px}.panel-head p{margin:5px 0 0;color:var(--muted)}
+.search{width:100%;border:1px solid #cbb99b;background:#fffaf0;color:var(--ink);border-radius:9px;padding:12px 13px;outline:none}.search:focus{border-color:#8e7650}
+.class-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.class-card{background:#fffaf0;border:1px solid #d7c6a8;border-radius:12px;padding:15px;min-height:170px;position:relative}
+.class-card:hover{box-shadow:0 6px 18px rgba(47,39,27,.10);transform:translateY(-1px)}
+.class-card .tag{font-size:11px;color:var(--red);font-weight:900;letter-spacing:.08em}.class-card h3{font-family:Georgia,serif;margin:7px 0;font-size:19px}.class-card p{font-size:13px;color:#66717b;line-height:1.45;margin:0 0 12px}.mini{border:1px solid #cbb99b;background:#f2e7d4;border-radius:8px;padding:7px 9px;font-weight:800;color:#314b60;cursor:pointer}
+.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.case-card{background:#fffaf0;border:1px solid #d6c5a8;border-radius:12px;padding:17px;min-height:205px}
+.case-card .case-no{font-size:11px;color:#8c3d35;font-weight:900}.case-card h3{font-family:Georgia,serif;margin:6px 0}.case-card .topic{display:inline-block;background:#e8dfcf;border-radius:999px;padding:5px 8px;font-size:11px;font-weight:800;color:#4d5c66}.case-card p{font-size:14px;line-height:1.52;color:#59656d}.case-card strong{color:#294c66}
+.two{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{background:#e9dfce;border:1px solid #d3c09f;border-radius:999px;padding:8px 11px;font-size:13px;font-weight:700;color:#43515a}
+.quizbar{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}.quizbar button{background:#eee4d3;border:1px solid #cdbb9d;color:#314b60;padding:9px 12px;border-radius:8px;font-weight:800;cursor:pointer}.quizbar button.active{background:#294c66;color:#fff}
+.question{background:#fffaf0;border:1px solid #d7c6a8;border-radius:12px;padding:17px;margin:11px 0}.question h3,.question h4{font-family:Georgia,serif;margin:0 0 12px}.opts{display:grid;gap:7px}.opts button{border:1px solid #d1c0a4;background:#f4ecdd;text-align:left;color:#293842;border-radius:8px;padding:11px;cursor:pointer}.opts button:hover{background:#ece0cb}.opts button.correct{background:#dfeee7;border-color:#6eaa90}.opts button.wrong{background:#f3dedb;border-color:#c47a70}.feedback{margin-top:9px;color:#59656d;font-size:13px;line-height:1.5}.input{width:100%;padding:11px;border:1px solid #ccb99a;border-radius:8px;background:#fffdf7}.answer{display:none;margin-top:9px;background:#f1e7d6;border-left:3px solid var(--gold);padding:11px;border-radius:0 8px 8px 0;line-height:1.5;color:#4e5960}.answer.show{display:block}
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.match-item{background:#f4ecdd;border:1px solid #d5c4a7;border-radius:9px;padding:11px}.match-item b{display:block;color:#294c66}
+.flash{min-height:260px;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#294c66,#173347);color:#fff;border-radius:14px;padding:35px;font-family:Georgia,serif;font-size:30px;box-shadow:var(--shadow);cursor:pointer}.flash small{display:block;font:600 13px Inter,sans-serif;color:#d5e0e5;margin-top:14px}
+textarea{width:100%;min-height:150px;border:1px solid #cdbb9d;border-radius:9px;background:#fffdf7;padding:12px;resize:vertical;color:var(--ink)}
+.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}.time{background:#f4ead9;border:1px solid #d6c4a4;padding:13px;border-radius:10px}.time b{display:block;color:#8c3d35;font-family:Georgia,serif;margin-bottom:5px}
+.exam-info{background:#eee2cf;border:1px solid #d2bea0;padding:15px;border-radius:10px;line-height:1.55}
+.modal{position:fixed;inset:0;background:rgba(22,28,31,.62);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}.modal.show{display:flex}.modal-box{max-width:800px;max-height:85vh;overflow:auto;background:#fffaf0;border:1px solid #cdbb9d;border-radius:15px;padding:25px;box-shadow:0 20px 60px rgba(0,0,0,.3)}.modal-box h2{font-family:Georgia,serif}.close{float:right;border:0;background:#e9decd;border-radius:8px;padding:7px 10px}
+.muted{color:var(--muted)}.center{text-align:center}.hidden{display:none!important}
+footer{text-align:center;color:#66717b;padding:28px}
+@media(max-width:1150px){.class-grid{grid-template-columns:repeat(3,1fr)}.grid4{grid-template-columns:repeat(2,1fr)}.case-grid{grid-template-columns:repeat(2,1fr)}.timeline{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:850px){.sidebar{width:75px;padding:10px 8px}.brand h1,.brand .ey,.side-progress{display:none}.nav button{text-align:center}.nav button .label{display:none}.main{margin-left:75px;width:calc(100% - 75px);padding:16px}.hero{padding:27px}.two{grid-template-columns:1fr}}
+@media(max-width:600px){.class-grid,.case-grid,.grid4,.timeline,.match-grid{grid-template-columns:1fr}.hero h2{font-size:43px}.hero:after{font-size:28px}.main{padding:10px}.panel{padding:14px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+ <div class="brand"><div class="ey">UDESA · PARCIAL</div><h1>⚖️ Derecho Arcade</h1></div>
+ <div class="nav">
+  <button class="active" data-view="home"><span class="n">🏛️</span><span class="label">Inicio</span></button>
+  <button data-view="classes"><span class="n">📚</span><span class="label">Clases 1–13</span></button>
+  <button data-view="cases"><span class="n">⚖️</span><span class="label">Casos</span></button>
+  <button data-view="concepts"><span class="n">🧠</span><span class="label">Conceptos</span></button>
+  <button data-view="mcq"><span class="n">🎯</span><span class="label">Multiple Choice</span></button>
+  <button data-view="fill"><span class="n">✍️</span><span class="label">Completar</span></button>
+  <button data-view="match"><span class="n">🔗</span><span class="label">Relacionar</span></button>
+  <button data-view="tf"><span class="n">⚡</span><span class="label">Verdadero/Falso</span></button>
+  <button data-view="flash"><span class="n">🃏</span><span class="label">Flashcards</span></button>
+  <button data-view="newcases"><span class="n">🧩</span><span class="label">Casos nuevos</span></button>
+  <button data-view="develop"><span class="n">📝</span><span class="label">Desarrollar</span></button>
+  <button data-view="exam"><span class="n">🏆</span><span class="label">Simulacro</span></button>
+ </div>
+ <div class="side-progress"><small>Precisión de práctica</small><div class="big" id="pct">0%</div><div class="bar"><i id="pctbar"></i></div><small id="stats">0 respuestas</small></div>
+</aside>
 
+<main class="main">
+
+<section class="view active" id="view-home">
+ <div class="hero">
+  <div class="ey">DERECHOS FUNDAMENTALES · CLASES 1–13</div>
+  <h2>Aprendé Derecho.<br><span>Entendé los casos.</span></h2>
+  <p>Una plataforma de entrenamiento para preparar el parcial: historia constitucional, conceptos, jurisprudencia, libertad de expresión y práctica variada. Todo organizado por secciones para que no tengas que bajar una página interminable.</p>
+  <div class="actions"><button class="btn primary" data-go="mcq">🎯 Empezar Multiple Choice</button><button class="btn gold" data-go="cases">⚖️ Estudiar casos</button><button class="btn" data-go="exam">🏆 Simulacro</button></div>
+ </div>
+ <div class="grid4">
+  <div class="tile"><div class="ico">📜</div><h3>Historia constitucional</h3><p>Línea histórica, reformas y proceso constitucional argentino.</p></div>
+  <div class="tile"><div class="ico">⚖️</div><h3>Jurisprudencia</h3><p>Todos los casos del programa de las Clases 6–13, con conflicto y concepto principal.</p></div>
+  <div class="tile"><div class="ico">🧠</div><h3>Entrenamiento</h3><p>Preguntas variadas y bancos grandes que cambian en cada sesión.</p></div>
+  <div class="tile"><div class="ico">🏆</div><h3>Modo parcial</h3><p>Simulacro integrado con casos nuevos y desarrollos.</p></div>
+ </div>
+ <div class="two">
+  <div class="panel"><div class="panel-head"><div><h2>🗺️ Ruta de estudio</h2><p>Elegí qué querés practicar.</p></div></div>
+   <div class="class-grid">
+    <div class="class-card"><div class="tag">BASE</div><h3>Clases 1–5</h3><p>Constitución, historia, 1994, fuentes y supremacía.</p><button class="mini" data-go="classes">Entrar →</button></div>
+    <div class="class-card"><div class="tag">CONTROL</div><h3>Clases 6–9</h3><p>Marbury, Sojo, Elortondo, Brown, Saguir, originalismo.</p><button class="mini" data-go="cases">Ver casos →</button></div>
+    <div class="class-card"><div class="tag">DERECHO</div><h3>Clases 10–13</h3><p>Libertad de expresión, censura, responsabilidad y réplica.</p><button class="mini" data-go="mcq">Practicar →</button></div>
+   </div>
+  </div>
+  <div class="panel"><div class="panel-head"><div><h2>🇦🇷 Línea rápida</h2><p>Para ordenar la historia.</p></div></div>
+   <div class="timeline" style="grid-template-columns:1fr 1fr">
+    <div class="time"><b>1831</b>Pacto Federal</div><div class="time"><b>1852</b>Acuerdo de San Nicolás</div>
+    <div class="time"><b>1853</b>Constitución</div><div class="time"><b>1859</b>Pacto de San José de Flores</div>
+    <div class="time"><b>1860</b>Reforma</div><div class="time"><b>1949</b>Constitución</div>
+    <div class="time"><b>1957</b>Art. 14 bis</div><div class="time"><b>1994</b>Atenuación presidencialismo</div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="view" id="view-classes">
+ <div class="panel"><div class="panel-head"><div><h2>📚 Clases 1–13</h2><p>Entrá a una clase para ver el mapa de conceptos.</p></div></div><input id="classSearch" class="search" placeholder="🔎 Buscar clase, concepto o tema..."></div>
+ <div class="class-grid" id="classGrid"></div>
+</section>
+
+<section class="view" id="view-cases">
+ <div class="panel"><div class="panel-head"><div><h2>⚖️ Casos del programa</h2><p>La ficha de cada caso te dice qué pasó, cuál es el conflicto y qué concepto principal tenés que reconocer.</p></div></div><input id="caseSearch" class="search" placeholder="🔎 Buscar caso, concepto o conflicto..."></div>
+ <div class="case-grid" id="caseGrid"></div>
+</section>
+
+<section class="view" id="view-concepts">
+ <div class="panel"><div class="panel-head"><div><h2>🧠 Conceptos clave</h2><p>Las distinciones que más conviene tener automáticas.</p></div></div>
+ <div class="chips" id="chips"></div></div>
+ <div class="two">
+  <div class="panel"><h2>🔍 Diferencias rápidas</h2><div id="differences"></div></div>
+  <div class="panel"><h2>📌 Artículos y ejes</h2><div class="chips"><span class="chip">Art. 30 · Reforma</span><span class="chip">Art. 31 · Supremacía</span><span class="chip">Art. 75 inc. 22 · Tratados</span><span class="chip">Libertad de expresión</span><span class="chip">Censura previa</span><span class="chip">Responsabilidad ulterior</span><span class="chip">Derecho de réplica</span></div></div>
+ </div>
+</section>
+
+<section class="view" id="view-mcq">
+ <div class="panel"><div class="panel-head"><div><h2>🎯 Multiple Choice</h2><p>Banco amplio y aleatorio: cada vez aparecen preguntas distintas.</p></div><button class="btn primary" id="newMcq">🔄 Nuevas preguntas</button></div>
+ <div class="quizbar"><button class="active" data-qmode="mixed">Mezclado</button><button data-qmode="concepts">Conceptos</button><button data-qmode="cases">Casos</button><button data-qmode="hard">Difíciles</button></div>
+ <div id="mcqArea"></div></div>
+</section>
+
+<section class="view" id="view-fill">
+ <div class="panel"><div class="panel-head"><div><h2>✍️ Completar</h2><p>Escribí el término exacto. El banco cambia.</p></div><button class="btn" id="newFill">🔄 Nuevas</button></div><div id="fillArea"></div></div>
+</section>
+
+<section class="view" id="view-match">
+ <div class="panel"><div class="panel-head"><div><h2>🔗 Relacionar</h2><p>Conectá caso ↔ conflicto ↔ concepto. Hay rondas diferentes.</p></div><button class="btn" id="newMatch">🔄 Nueva ronda</button></div><div id="matchArea"></div></div>
+</section>
+
+<section class="view" id="view-tf">
+ <div class="panel"><div class="panel-head"><div><h2>⚡ Verdadero / Falso</h2><p>Ojo con palabras como "siempre", "todos" y "automáticamente".</p></div><button class="btn" id="newTF">🔄 Nueva ronda</button></div><div id="tfArea"></div></div>
+</section>
+
+<section class="view" id="view-flash">
+ <div class="panel"><div class="panel-head"><div><h2>🃏 Flashcards</h2><p>Volteá la tarjeta y comprobá si lo sabías.</p></div><div><button class="btn" id="prevFlash">←</button> <button class="btn" id="nextFlash">→</button></div></div>
+ <div class="flash" id="flashCard"></div><p class="muted center" id="flashCount"></p></div>
+</section>
+
+<section class="view" id="view-newcases">
+ <div class="panel"><div class="panel-head"><div><h2>🧩 Casos nuevos</h2><p>No aparece el nombre del caso. Tenés que reconocer la doctrina.</p></div><button class="btn" id="newCaseSet">🔄 Nuevos casos</button></div><div id="newCasesArea"></div></div>
+</section>
+
+<section class="view" id="view-develop">
+ <div class="panel"><div class="panel-head"><div><h2>📝 Desarrollar</h2><p>Entrená respuestas de parcial: definición + relación + aplicación.</p></div><button class="btn" id="newDevelop">🔄 Nuevas</button></div><div id="developArea"></div></div>
+</section>
+
+<section class="view" id="view-exam">
+ <div class="panel"><div class="panel-head"><div><h2>🏆 Simulacro de parcial</h2><p>Modo examen. 20 consignas mezcladas. Las de desarrollo se corrigen manualmente.</p></div><button class="btn gold" id="startExam">🚀 Empezar</button></div>
+ <div class="exam-info"><b>Regla:</b> no mires apuntes. El simulacro mezcla Clases 1–13, casos y preguntas nuevas. Al terminar las automáticas vas a ver tu precisión.</div>
+ <div id="examArea"></div></div>
+</section>
+
+<footer>Derecho Arcade · UdeSA · Clases 1–13 · Plataforma de práctica personal</footer>
+</main>
+</div>
+
+<div class="modal" id="modal"><div class="modal-box"><button class="close" id="closeModal">✕</button><div id="modalContent"></div></div></div>
+
+<script>
+const classes=[
+["1","Concepto de Constitución","Constitución y constitucionalismo · clásico/social · poder constituyente/constituido · rígida/flexible · reforma · contenidos pétreos"],
+["2","Proceso del constitucionalismo argentino","Primeros ensayos · Pacto Federal · Acuerdo de San Nicolás · 1853 · Pacto de San José de Flores · 1860 · 1866 · 1898 · 1949 · 1957 · 1972"],
+["3","Reforma de 1994","Objetivo de atenuar el presidencialismo · presidencialismo · parlamentarismo"],
+["4","Fuentes de la Constitución","Alberdi · Bases · influencia del constitucionalismo de Estados Unidos"],
+["5","Supremacía constitucional","Art. 31 · art. 75 inc. 22 · jerarquía de tratados · tratados con jerarquía constitucional"],
+["6","Control de constitucionalidad I","Origen del control judicial · Marbury v. Madison"],
+["7","Control de constitucionalidad II","Sojo · Municipalidad de la Capital c. Elortondo · legitimidad de los jueces"],
+["8","Interpretación constitucional I","Brown v. Board of Education · interpretación constitucional"],
+["9","Interpretación constitucional II","Saguir y Dib · originalismo · Constitución viviente"],
+["10","Libertad de expresión I","Importancia · teorías justificatorias · niveles de escrutinio · censura previa"],
+["11","Libertad de expresión II","Servini de Cubría · S., V. C. c/M., D.A. · Olmedo Bustos · Editorial Río Negro"],
+["12","Responsabilidad ulterior","Ponzetti de Balbín · Campillay · New York Times v. Sullivan · Patitó"],
+["13","Efecto silenciador y derecho de réplica","Chilling effect · Ekmekdjian c. Sofovich · Petric"]
+];
+
+const cases=[
+["1","Marbury v. Madison","Control de constitucionalidad","Caso estadounidense asociado al origen del control judicial de constitucionalidad. Se trabaja la idea de que una norma incompatible con la Constitución no debe prevalecer.","¿Puede un juez controlar la compatibilidad de una norma con la Constitución?"],
+["2","Sojo","Control de constitucionalidad","Caso argentino temprano vinculado con el control judicial de constitucionalidad.","Control judicial de constitucionalidad."],
+["3","Municipalidad de la Capital c. Elortondo","Control de constitucionalidad","Caso argentino estudiado junto con Sojo para analizar el control judicial y sus límites/legitimidad.","Control de constitucionalidad y legitimidad judicial."],
+["4","Brown v. Board of Education","Interpretación constitucional","Caso sobre segregación racial en escuelas públicas. Se usa para estudiar cómo se interpreta y aplica la igualdad constitucional.","Interpretación constitucional."],
+["5","Saguir y Dib","Interpretación constitucional","Caso de la Corte utilizado para trabajar problemas de interpretación y aplicación de derechos constitucionales.","Interpretación constitucional."],
+["6","Servini de Cubría","Censura previa","Se intentó impedir previamente la emisión de un segmento del programa de Tato Bores. El problema central es la intervención estatal antes de la difusión.","Libertad de expresión · censura previa."],
+["7","S., V. C. c/M., D.A.","Privacidad y prensa","La cobertura periodística de un conflicto de filiación involucraba información sobre una menor. Se tensionan privacidad y libertad de prensa.","Privacidad · libertad de prensa."],
+["8","Olmedo Bustos y otros c. Chile","Censura previa","La Corte Interamericana analizó la prohibición de la película La Última Tentación de Cristo en Chile.","Libertad de expresión · censura previa."],
+["9","Editorial Río Negro S.A. c. Neuquén","Publicidad oficial","El gobierno de Neuquén retiró publicidad oficial de un medio crítico. Se estudia la posible afectación indirecta de la libertad de prensa.","Publicidad oficial · libertad de prensa."],
+["10","Ponzetti de Balbín","Privacidad","Se publicó una fotografía de Ricardo Balbín en terapia intensiva sin autorización. Se enfrenta privacidad con libertad de prensa.","Privacidad · libertad de expresión."],
+["11","Campillay","Honor y forma de informar","Caso sobre información periodística que podía afectar el honor. La doctrina se ocupa de la manera de presentar determinadas informaciones.","Honor · libertad de prensa · forma de informar."],
+["12","New York Times v. Sullivan","Actual malice","Caso de la Corte Suprema estadounidense sobre expresiones relacionadas con un funcionario público y el estándar de actual malice.","Funcionario público · falsedad · actual malice."],
+["13","Patitó","Crítica y libertad de expresión","Caso sobre críticas periodísticas vinculadas con integrantes del Poder Judicial. Se trabaja la tensión entre honor y libertad de expresión, especialmente en asuntos de interés público.","Crítica · honor · libertad de expresión."],
+["14","Ekmekdjian c. Sofovich","Derecho de réplica","Luego de expresiones difundidas por televisión que consideró ofensivas, Ekmekdjian pidió responder en el mismo medio. La Corte reconoció el derecho de réplica bajo determinadas condiciones.","Derecho de réplica."],
+["15","Petric","Límites del derecho de réplica","Caso posterior utilizado para estudiar el alcance, requisitos y límites del derecho de réplica.","Derecho de réplica · límites."]
+];
+
+const concepts=[
+["Poder constituyente","Poder que crea o reforma la Constitución.","Se distingue entre originario y derivado."],
+["Poderes constituidos","Órganos creados por la Constitución.","Ejecutivo, Legislativo y Judicial."],
+["Constitución rígida","Constitución cuya reforma requiere un procedimiento especial.","No significa que no pueda reformarse."],
+["Supremacía constitucional","Superioridad de la Constitución dentro del ordenamiento.","Art. 31."],
+["Tratados con jerarquía constitucional","Determinados tratados de derechos humanos tienen jerarquía constitucional.","Art. 75 inc. 22; no todos los tratados."],
+["Control de constitucionalidad","Verificación de compatibilidad de una norma o acto con la Constitución.","Marbury, Sojo, Elortondo."],
+["Interpretación constitucional","Determinación del significado, alcance y aplicación de la Constitución.","No se reduce a casos donde 'no hay nada escrito'."],
+["Originalismo","Enfoque que da especial peso al significado original de la Constitución.","Se contrasta con Constitución viviente."],
+["Constitución viviente","Enfoque que considera cambios sociales y circunstancias actuales al aplicar principios constitucionales.","No equivale a poder inventar cualquier derecho."],
+["Libertad de expresión","Protección de expresar, comunicar y difundir ideas/información.","Tiene dimensión individual y social."],
+["Censura previa","Intervención que busca impedir una expresión antes de su difusión.","Servini y Olmedo Bustos."],
+["Responsabilidad ulterior","Posibles consecuencias jurídicas posteriores a la expresión.","Se diferencia de la censura previa."],
+["Efecto silenciador","Autocensura producida por temor a sanciones u otras consecuencias.","La restricción puede operar indirectamente."],
+["Derecho de réplica","Derecho a responder o aclarar determinadas informaciones difundidas sobre una persona bajo condiciones y límites.","Ekmekdjian y Petric."],
+["Actual malice","Estándar de Sullivan: conocimiento de falsedad o reckless disregard en el supuesto trabajado.","Relacionado con funcionarios públicos."],
+["Honor","Interés personal protegido frente a afectaciones ilegítimas.","Campillay, Sullivan y Patitó permiten estudiar tensiones con expresión."],
+["Privacidad","Protección frente a intromisiones en aspectos privados.","Ponzetti y S., V. C."],
+["Publicidad oficial","Publicidad estatal cuya asignación puede tener relevancia para la libertad de prensa.","Editorial Río Negro."]
+];
+
+const differences=[
+["Supremacía vs. control","Supremacía: la Constitución es superior. Control: el juez verifica si una norma es compatible con ella."],
+["Control vs. interpretación","Control: ¿la norma respeta la Constitución? Interpretación: ¿qué significa y cómo se aplica la Constitución?"],
+["Censura previa vs. responsabilidad ulterior","Censura previa: antes de difundir. Responsabilidad ulterior: consecuencias después de expresarse."],
+["Derecho vs. restricción","Libertad de expresión = derecho. Censura previa = restricción/problema."],
+["Originalismo vs. Constitución viviente","Originalismo: especial peso al significado original. Constitución viviente: considera circunstancias y cambios sociales actuales."],
+["Campillay vs. Sullivan","Campillay: forma de presentar determinada información y honor. Sullivan: funcionarios públicos y estándar de actual malice."],
+["Ekmekdjian vs. Petric","Ekmekdjian: reconocimiento del derecho de réplica. Petric: alcance, requisitos y límites."]
+];
+
+const mcqBanks={
+concepts:[
+["¿Cuál es la diferencia más precisa entre poder constituyente y poderes constituidos?",["El constituyente crea/reforma la Constitución; los constituidos son órganos creados por ella","El constituyente es siempre el Poder Judicial; los constituidos son los tratados","No existe diferencia","Los constituidos reforman la Constitución sin procedimiento"],0,"El poder constituyente actúa sobre la Constitución; los poderes constituidos son creados por ella."],
+["Una Constitución rígida se caracteriza porque:",["Nunca puede reformarse","Su reforma exige un procedimiento especial","La reforma la hace cualquier juez","Tiene menos derechos"],1,"La rigidez se refiere al procedimiento de reforma."],
+["¿Qué busca el constitucionalismo?",["Concentrar el poder estatal","Limitar el poder y proteger derechos mediante una organización constitucional","Eliminar los derechos individuales","Reemplazar al Poder Judicial"],1,"La limitación del poder es central."],
+["¿Cuál secuencia es correcta?",["Pacto Federal → Acuerdo de San Nicolás → Constitución de 1853 → Pacto de San José de Flores → reforma de 1860","Constitución de 1853 → Pacto Federal → reforma de 1860 → Acuerdo de San Nicolás","Pacto de San José → Constitución 1853 → Pacto Federal","Acuerdo de San Nicolás → Pacto Federal → Constitución 1949"],0,"Esa es la secuencia histórica trabajada."],
+["La reforma de 1994 buscó:",["Instalar parlamentarismo","Atenuar el presidencialismo","Eliminar el Congreso","Eliminar la figura presidencial"],1,"Argentina siguió siendo presidencialista."],
+["¿Qué afirmación es correcta sobre Alberdi?",["Su pensamiento y Bases fueron fuentes relevantes del constitucionalismo argentino","Fue autor de Marbury","Fue juez de la Corte Interamericana","Redactó la reforma de 1994"],0,"Las Bases de Alberdi son una referencia central de la Clase 4."],
+["El art. 31 se vincula principalmente con:",["Derecho de réplica","Supremacía constitucional","Publicidad oficial","Actual malice"],1,"El art. 31 expresa la supremacía de la Constitución."],
+["El art. 75 inc. 22 es relevante para:",["Jerarquía de tratados y determinados tratados de derechos humanos","Procedimiento de reforma del art. 30","Elección presidencial","Publicidad oficial"],0,"La norma regula la jerarquía de tratados y otorga jerarquía constitucional a determinados tratados de derechos humanos."],
+["¿Qué pregunta corresponde principalmente al control de constitucionalidad?",["¿Qué significa la Constitución?","¿Es compatible esta norma con la Constitución?","¿Qué ocurrió en 1853?","¿Quién escribió las Bases?"],1,"Es la pregunta central del control."],
+["¿Qué pregunta corresponde principalmente a la interpretación constitucional?",["¿Qué significado y alcance tiene la norma constitucional?","¿Qué tratado tiene más votos?","¿Qué poder creó la Constitución?","¿Qué diario recibió publicidad?"],0,"Interpretar es determinar significado, alcance y aplicación."],
+["El originalismo da especial importancia a:",["El significado original al momento de adopción","La opinión de los medios actuales","La publicidad oficial","La censura previa"],0,"Ese es su rasgo central."],
+["La Constitución viviente enfatiza:",["Cambios sociales y circunstancias actuales al aplicar principios constitucionales","Que la Constitución no tiene valor","Que cualquier juez puede cambiarla","Que solo importan las leyes ordinarias"],0,"Se estudia como enfoque interpretativo."],
+["La libertad de expresión tiene:",["Solo una dimensión individual","Dimensión individual y social","Solo dimensión estatal","Solo dimensión económica"],1,"Protege al individuo y también la circulación social de ideas/información."],
+["La censura previa consiste en:",["Impedir previamente una expresión","Indemnizar después de publicar","Reconocer réplica","Criticar una sentencia"],0,"La intervención ocurre antes de la difusión."],
+["El efecto silenciador puede aparecer cuando:",["El miedo a consecuencias genera autocensura","Una persona gana un juicio","Se reforma la Constitución","Se publica una noticia sin consecuencias"],0,"La amenaza puede producir autocensura."],
+["El derecho de réplica:",["Es ilimitado","Puede ejercerse bajo determinadas condiciones y límites","Es idéntico a censura previa","Solo existe en Estados Unidos"],1,"Ekmekdjian y Petric permiten estudiar su alcance y límites."]
+],
+cases:[
+["Un gobierno retira publicidad oficial de un medio después de críticas. ¿Qué caso es el referente más directo?",["Campillay","Editorial Río Negro","Petric","Brown"],1,"Editorial Río Negro."],
+["Se intenta impedir antes de su emisión un segmento de un programa humorístico. ¿Qué caso?",["Servini de Cubría","Ponzetti","Sullivan","Patitó"],0,"Servini de Cubría."],
+["Se prohíbe una película antes de su difusión. ¿Qué caso?",["Olmedo Bustos","Sojo","Ekmekdjian","Elortondo"],0,"Olmedo Bustos."],
+["Se publica una foto de una persona internada sin autorización. ¿Qué caso?",["Ponzetti de Balbín","Campillay","Patitó","Petric"],0,"Ponzetti de Balbín."],
+["Una noticia presenta una acusación de manera que puede afectar ilegítimamente el honor. ¿Qué doctrina estudiarías?",["Campillay","Marbury","Pacto Federal","Petric"],0,"Campillay."],
+["Un funcionario público reclama daños por una publicación falsa relacionada con su conducta oficial. ¿Qué estándar aparece?",["Actual malice","Censura previa","Derecho de réplica","Constitución viviente"],0,"New York Times v. Sullivan."],
+["Un medio critica a integrantes del Poder Judicial en asuntos de interés público. ¿Qué caso?",["Patitó","Servini","Sojo","Olmedo"],0,"Patitó."],
+["Una persona pide responder por televisión a expresiones que considera ofensivas. ¿Qué caso?",["Ekmekdjian c. Sofovich","Brown","Marbury","Campillay"],0,"Ekmekdjian."],
+["Se discuten requisitos y límites del derecho de réplica. ¿Qué caso?",["Petric","Ponzetti","Sullivan","Sojo"],0,"Petric."],
+["Una menor queda expuesta por información periodística sobre un conflicto de filiación. ¿Qué caso?",["S., V. C. c/M., D.A.","Patitó","Marbury","Río Negro"],0,"S., V. C. c/M., D.A."]
+],
+hard:[
+["Una norma inferior contradice la Constitución. ¿Qué par conceptual explica mejor la situación?",["Supremacía constitucional + control de constitucionalidad","Originalismo + publicidad oficial","Derecho de réplica + Pacto Federal","Constitución viviente + Campillay"],0,"La supremacía explica la posición superior; el control permite verificar la incompatibilidad."],
+["Un juez interpreta una cláusula frente a una tecnología nueva y considera el contexto social actual. ¿Qué enfoque aparece?",["Originalismo","Constitución viviente","Poder constituyente originario","Censura previa"],1,"El enfoque de Constitución viviente presta atención a circunstancias actuales."],
+["Una amenaza de sanciones hace que periodistas dejen de publicar críticas, aunque nadie les prohibió hacerlo. ¿Qué concepto?",["Efecto silenciador","Censura previa necesariamente","Pacto Federal","Derecho de réplica"],0,"La amenaza puede generar autocensura."],
+["¿Cuál afirmación evita una confusión frecuente?",["Campillay = toda noticia falsa","Censura previa = responsabilidad posterior","Libertad de expresión es el derecho; censura previa es una restricción","Derecho de réplica = publicación obligatoria de cualquier texto"],2,"Derecho y restricción no son lo mismo."],
+["¿Qué problema de legitimidad aparece en el control judicial?",["Jueces no elegidos directamente pueden controlar decisiones de representantes electos","Los jueces redactan tratados","El Congreso no puede sancionar leyes","La Constitución es flexible"],0,"Es el debate sobre la legitimidad democrática del control judicial."],
+["Si el juez pregunta '¿qué significa esta cláusula constitucional?', está principalmente:",["Interpretando","Reformando","Ejecutando","Censurando"],0,"La pregunta es interpretativa."],
+["Si el juez pregunta '¿esta ley contradice la Constitución?', está principalmente:",["Haciendo control de constitucionalidad","Haciendo derecho de réplica","Aplicando actual malice","Reformando la Constitución"],0,"Es la pregunta propia del control."],
+["Si el Estado usa una medida económica para presionar a un medio crítico sin prohibirle publicar, el problema puede ser:",["Una afectación indirecta de la libertad de prensa","Necesariamente censura previa","Un caso de filiación","Una reforma constitucional"],0,"La medida indirecta es relevante en Editorial Río Negro."]
+]};
+
+const fillBank=[
+["El principio que ubica a la Constitución por encima de normas inferiores es la ______ constitucional.","supremacía"],
+["El poder constituyente que crea una Constitución nueva es ______.","originario"],
+["El poder que reforma una Constitución existente conforme al procedimiento previsto es ______.","derivado"],
+["Una Constitución cuya reforma requiere un procedimiento especial es ______.","rígida"],
+["El control que verifica si una norma es compatible con la Constitución es control de ______.","constitucionalidad"],
+["Determinar el significado y alcance de una cláusula constitucional es ______ constitucional.","interpretación"],
+["El impedimento estatal de una expresión antes de su difusión es ______ previa.","censura"],
+["Las consecuencias jurídicas posteriores a una expresión pertenecen a la responsabilidad ______.","ulterior"],
+["El miedo a consecuencias que produce autocensura es efecto ______.","silenciador"],
+["La doctrina sobre la forma de presentar información periodística para proteger el honor se llama doctrina ______.","Campillay"],
+["El estándar de Sullivan se denomina actual ______.","malice"],
+["El caso de publicidad oficial y libertad de prensa es Editorial ______.","Río Negro"],
+["El caso de la película La Última Tentación de Cristo es ______ Bustos.","Olmedo"],
+["El caso sobre la foto de Balbín internado es ______ de Balbín.","Ponzetti"],
+["El caso de derecho de réplica frente a expresiones televisivas es ______ c. Sofovich.","Ekmekdjian"],
+["El caso sobre límites del derecho de réplica es ______.","Petric"],
+["El caso estadounidense asociado al origen del control judicial es ______ v. Madison.","Marbury"],
+["El caso argentino temprano de control judicial estudiado en clase 7 es ______.","Sojo"]
+];
+
+const tfBank=[
+["La Constitución rígida no puede reformarse.",false,"Puede reformarse, pero mediante un procedimiento especial."],
+["El constitucionalismo busca limitar el poder estatal y proteger derechos.",true,"Es uno de sus ejes centrales."],
+["Los poderes constituidos crean libremente la Constitución sin límites.",false,"Son órganos creados por la Constitución."],
+["Argentina adoptó un sistema parlamentario en 1994.",false,"La reforma buscó atenuar el presidencialismo."],
+["Todos los tratados internacionales tienen jerarquía constitucional.",false,"El art. 75 inc. 22 otorga jerarquía constitucional a determinados tratados de derechos humanos."],
+["Marbury v. Madison se estudia por su relación con el control judicial de constitucionalidad.",true,"Correcto."],
+["Interpretación constitucional y control de constitucionalidad son sinónimos.",false,"Son conceptos distintos."],
+["Brown v. Board of Education se trabaja en interpretación constitucional.",true,"Correcto."],
+["La censura previa ocurre después de publicar.",false,"Por definición, opera antes de la difusión."],
+["Servini de Cubría se relaciona con un intento de impedir previamente una emisión.",true,"Correcto."],
+["Olmedo Bustos se relaciona con la prohibición de una película.",true,"Correcto."],
+["Editorial Río Negro se vincula con publicidad oficial.",true,"Correcto."],
+["Campillay significa simplemente que toda información falsa produce responsabilidad automática.",false,"La doctrina se ocupa de la forma de presentar determinada información."],
+["Ponzetti de Balbín trabaja privacidad frente a libertad de prensa.",true,"Correcto."],
+["Sullivan se vincula con actual malice.",true,"Correcto."],
+["Patitó permite estudiar críticas a integrantes del Poder Judicial y libertad de expresión.",true,"Correcto."],
+["El derecho de réplica es ilimitado.",false,"Tiene condiciones y límites."],
+["Petric se vincula con el alcance y límites del derecho de réplica.",true,"Correcto."],
+["El efecto silenciador requiere necesariamente una prohibición expresa.",false,"Puede producirse por temor a consecuencias."],
+["La libertad de expresión solo protege al individuo y nunca tiene dimensión social.",false,"También tiene una dimensión social/relacionada con la circulación de ideas."]
+];
+
+const matchRounds=[
+[
+["Marbury v. Madison","Origen del control judicial"],
+["Servini de Cubría","Censura previa en programa televisivo"],
+["Editorial Río Negro","Publicidad oficial"],
+["Ponzetti de Balbín","Privacidad y fotografía"],
+["Ekmekdjian c. Sofovich","Derecho de réplica"]
+],
+[
+["Sojo","Control de constitucionalidad en Argentina"],
+["Olmedo Bustos","Prohibición de película"],
+["Campillay","Honor y forma de informar"],
+["New York Times v. Sullivan","Actual malice"],
+["Petric","Límites del derecho de réplica"]
+],
+[
+["Brown v. Board of Education","Interpretación constitucional"],
+["S., V. C. c/M., D.A.","Privacidad de una menor y prensa"],
+["Patitó","Crítica a integrantes del Poder Judicial"],
+["Saguir y Dib","Interpretación constitucional"],
+["Municipalidad de la Capital c. Elortondo","Control de constitucionalidad"]
+]
+];
+
+const newCaseBank=[
+["Un gobernador anuncia que un periódico perderá toda la publicidad estatal si continúa criticando a su administración. No le prohíbe publicar, pero el medio comienza a autocensurarse.","Identificá el derecho, el concepto principal y el caso del programa que usarías como referencia.","Libertad de prensa + posible efecto indirecto/efecto silenciador; Editorial Río Negro es el caso principal para la publicidad oficial."],
+["Una autoridad judicial ordena que un canal no emita una entrevista porque considera que podría ser ofensiva. La orden se dicta antes de que la entrevista salga al aire.","Identificá el problema y un caso del programa.","Libertad de expresión + censura previa; Servini de Cubría es una referencia directa."],
+["Un medio publica una acusación de un tercero como si fuera un hecho probado y la persona acusada reclama por el daño a su honor.","¿Qué derecho entra en tensión y qué doctrina estudiarías?","Honor vs. libertad de expresión; Campillay permite analizar la forma de presentar la información."],
+["Un funcionario público reclama daños por una publicación falsa relacionada con su actuación oficial. El debate es qué estándar debe aplicar el tribunal.","¿Qué caso y doctrina aparecen?","New York Times v. Sullivan + actual malice."],
+["Una persona solicita al medio en el que se difundieron expresiones sobre ella un espacio para responder. El medio afirma que, si existiera un derecho, tendría que publicar cualquier texto que la persona entregue.","¿Qué derecho aparece y qué límite deberías señalar?","Derecho de réplica; no es ilimitado. Ekmekdjian y Petric son los casos centrales."],
+["Un juez debe aplicar una cláusula constitucional a una situación tecnológica inexistente cuando se adoptó la Constitución. Un juez privilegia el significado original y otro las circunstancias actuales.","Identificá los dos enfoques.","Originalismo y Constitución viviente."],
+["Una ley ordinaria contradice una cláusula constitucional. El juez debe decidir qué hacer con esa incompatibilidad.","¿Qué dos conceptos de las primeras clases aparecen juntos?","Supremacía constitucional y control de constitucionalidad."],
+["Un tribunal debe determinar qué alcance tiene una cláusula constitucional, sin que el problema principal sea la validez de una ley inferior.","¿Qué actividad está realizando?","Interpretación constitucional."]
+];
+
+const developmentBank=[
+"Explicá qué es el constitucionalismo y diferenciá constitucionalismo clásico y social.",
+"Explicá la diferencia entre poder constituyente originario, derivado y poderes constituidos.",
+"Ordená y explicá brevemente la secuencia Pacto Federal → Acuerdo de San Nicolás → Constitución de 1853 → Pacto de San José de Flores → reforma de 1860.",
+"Explicá el objetivo de atenuación del presidencialismo de la reforma de 1994 y distinguí presidencialismo de parlamentarismo.",
+"Explicá la supremacía constitucional y relacionála con los arts. 31 y 75 inc. 22.",
+"Explicá la diferencia entre supremacía constitucional, control de constitucionalidad e interpretación constitucional.",
+"Explicá el problema de legitimidad que aparece cuando jueces no elegidos directamente ejercen control de constitucionalidad.",
+"Compará originalismo y Constitución viviente.",
+"Explicá por qué la libertad de expresión puede tener una dimensión individual y una dimensión social.",
+"Distinguí censura previa, responsabilidad ulterior y efecto silenciador.",
+"Compará Campillay y New York Times v. Sullivan.",
+"Explicá la tensión entre libertad de expresión y privacidad a partir de Ponzetti de Balbín.",
+"Explicá Editorial Río Negro y por qué la publicidad oficial puede ser relevante para la libertad de prensa.",
+"Explicá Ekmekdjian c. Sofovich y el derecho de réplica.",
+"Explicá qué aporta Petric al análisis del derecho de réplica."
+];
+
+let stats=JSON.parse(localStorage.getItem("derechoArcadeStats")||'{"a":0,"c":0}');
+let flashIndex=0,flashFront=true, currentQMode="mixed";
+
+function saveStats(){localStorage.setItem("derechoArcadeStats",JSON.stringify(stats));updateStats()}
+function updateStats(){const p=stats.a?Math.round(stats.c/stats.a*100):0;document.getElementById("pct").textContent=p+"%";document.getElementById("pctbar").style.width=p+"%";document.getElementById("stats").textContent=stats.a+" respuestas · "+stats.c+" correctas"}
+function count(ok){stats.a++;if(ok)stats.c++;saveStats()}
+
+function showView(name){
+ document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
+ document.getElementById("view-"+name).classList.add("active");
+ document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.view===name));
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+document.querySelectorAll("[data-view]").forEach(b=>b.onclick=()=>showView(b.dataset.view));
+document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>showView(b.dataset.go));
+
+function renderClasses(){
+ const q=(document.getElementById("classSearch")?.value||"").toLowerCase();
+ document.getElementById("classGrid").innerHTML=classes.filter(c=>c.join(" ").toLowerCase().includes(q)).map(c=>`
+ <div class="class-card"><div class="tag">CLASE ${c[0]}</div><h3>${c[1]}</h3><p>${c[2]}</p><button class="mini" onclick="openClass('${c[0]}')">Ver ficha →</button></div>`).join("");
+}
+function openClass(n){
+ const c=classes.find(x=>x[0]===n);
+ const related=cases.filter(x=>c[2].toLowerCase().split(" · ").some(k=>x[3].toLowerCase().includes(k.toLowerCase()))).slice(0,6);
+ openModal(`<h2>Clase ${c[0]} · ${c[1]}</h2><p>${c[2]}</p>${related.length?`<h3>Casos relacionados</h3><ul>${related.map(x=>`<li><b>${x[1]}</b> — ${x[3]}</li>`).join("")}</ul>`:""}<button class="btn primary" onclick="closeModal();showView('mcq')">Practicar esta zona →</button>`);
+}
+document.getElementById("classSearch").oninput=renderClasses;
+
+function renderCases(){
+ const q=(document.getElementById("caseSearch")?.value||"").toLowerCase();
+ document.getElementById("caseGrid").innerHTML=cases.filter(c=>c.join(" ").toLowerCase().includes(q)).map(c=>`
+ <div class="case-card"><div class="case-no">CASO ${c[0]}</div><h3>${c[1]}</h3><span class="topic">${c[2]}</span><p>${c[3]}</p><strong>Concepto principal:</strong><p>${c[4]}</p><button class="mini" onclick="openCase('${c[0]}')">Estudiar caso →</button></div>`).join("");
+}
+function openCase(n){
+ const c=cases.find(x=>x[0]===n);
+ openModal(`<h2>${c[1]}</h2><span class="chip">${c[2]}</span><h3>¿Qué pasó?</h3><p>${c[3]}</p><h3>Concepto principal</h3><p><b>${c[4]}</b></p><h3>Para el parcial</h3><p>Cuando aparezca una situación parecida, primero identificá el <b>derecho en conflicto</b>, después el <b>problema jurídico</b> y finalmente la <b>doctrina/caso</b> que permite analizarlo.</p>`);
+}
+document.getElementById("caseSearch").oninput=renderCases;
+
+document.getElementById("chips").innerHTML=concepts.map(c=>`<span class="chip" title="${c[1]}">${c[0]}</span>`).join("");
+document.getElementById("differences").innerHTML=differences.map(d=>`<div class="question"><h3>${d[0]}</h3><p>${d[1]}</p></div>`).join("");
+
+function sample(arr,n){return [...arr].sort(()=>Math.random()-.5).slice(0,n)}
+function mixedBank(){
+ const all=[...mcqBanks.concepts,...mcqBanks.cases,...mcqBanks.hard];
+ return sample(all,10);
+}
+function renderMCQ(){
+ let bank=currentQMode==="mixed"?mixedBank():sample(mcqBanks[currentQMode==="concepts"?"concepts":currentQMode==="cases"?"cases":"hard"],10);
+ document.getElementById("mcqArea").innerHTML=bank.map((q,i)=>`
+ <div class="question"><h3>${i+1}. ${q[0]}</h3><div class="opts">${q[1].map((o,j)=>`<button data-j="${j}">${String.fromCharCode(65+j)}) ${o}</button>`).join("")}</div><div class="feedback"></div></div>`).join("");
+ document.querySelectorAll("#mcqArea .opts button").forEach(btn=>btn.onclick=()=>{
+   const box=btn.parentElement, q=bank[[...document.querySelectorAll("#mcqArea .question")].indexOf(box.parentElement)];
+   if([...box.children].some(x=>x.classList.contains("correct")||x.classList.contains("wrong")))return;
+   const ok=+btn.dataset.j===q[2];btn.classList.add(ok?"correct":"wrong");if(!ok)box.children[q[2]].classList.add("correct");
+   box.nextElementSibling.textContent=(ok?"✅ Correcto. ":"❌ Incorrecto. ")+q[3];count(ok);
+ });
+}
+document.querySelectorAll("[data-qmode]").forEach(b=>b.onclick=()=>{document.querySelectorAll("[data-qmode]").forEach(x=>x.classList.remove("active"));b.classList.add("active");currentQMode=b.dataset.qmode;renderMCQ()});
+document.getElementById("newMcq").onclick=renderMCQ;
+
+function renderFill(){
+ const bank=sample(fillBank,8);
+ document.getElementById("fillArea").innerHTML=bank.map((q,i)=>`<div class="question"><h3>${i+1}. ${q[0]}</h3><input class="input" placeholder="Escribí el concepto..."><button class="mini check-fill" data-answer="${q[1]}">Comprobar</button><div class="feedback"></div></div>`).join("");
+ document.querySelectorAll(".check-fill").forEach(b=>b.onclick=()=>{
+  const q=b.parentElement, inp=q.querySelector("input"), ans=inp.value.trim().toLowerCase(), key=b.dataset.answer.toLowerCase();
+  if(!ans)return;const ok=ans===key||ans.includes(key);q.querySelector(".feedback").textContent=ok?"✅ Correcto.":"❌ Revisá. Respuesta esperada: "+b.dataset.answer;count(ok);b.disabled=true;
+ });
+}
+document.getElementById("newFill").onclick=renderFill;
+
+let matchRound=0;
+function renderMatch(){
+ const r=matchRounds[matchRound%matchRounds.length], left=r.map((x,i)=>({t:x[0],i})).sort(()=>Math.random()-.5), right=r.map((x,i)=>({t:x[1],i})).sort(()=>Math.random()-.5);
+ document.getElementById("matchArea").innerHTML=`<div class="match-grid"><div>${left.map(x=>`<div class="match-item"><b>${x.t}</b><select data-left="${x.i}" class="input" style="margin-top:8px"><option value="">Elegí...</option>${right.map(y=>`<option value="${y.i}">${y.t}</option>`).join("")}</select></div>`).join("")}</div><div class="panel" style="margin:0"><h3>Cómo hacerlo</h3><p>Relacioná cada caso con su concepto principal. Después tocá comprobar.</p><button class="btn primary" id="checkMatch">Comprobar ronda</button><div id="matchFeedback" class="feedback"></div></div></div>`;
+ document.getElementById("checkMatch").onclick=()=>{
+  let ok=0,total=r.length;document.querySelectorAll("#matchArea select").forEach(s=>{if(+s.value===+s.dataset.left)ok++});
+  const good=ok===total;document.getElementById("matchFeedback").textContent=`${good?"✅":"🟡"} ${ok}/${total} relaciones correctas.`;count(good);
+ };
+}
+document.getElementById("newMatch").onclick=()=>{matchRound++;renderMatch()};
+
+function renderTF(){
+ const bank=sample(tfBank,10);
+ document.getElementById("tfArea").innerHTML=bank.map((q,i)=>`<div class="question"><h3>${i+1}. ${q[0]}</h3><div class="opts"><button data-v="true">Verdadero</button><button data-v="false">Falso</button></div><div class="feedback"></div></div>`).join("");
+ document.querySelectorAll("#tfArea .opts button").forEach(b=>b.onclick=()=>{
+  const idx=[...document.querySelectorAll("#tfArea .question")].indexOf(b.parentElement.parentElement),q=bank[idx];
+  const box=b.parentElement;if([...box.children].some(x=>x.classList.contains("correct")||x.classList.contains("wrong")))return;
+  const ok=(b.dataset.v==="true")===q[1];b.classList.add(ok?"correct":"wrong");if(!ok)box.children[q[1]?0:1].classList.add("correct");box.nextElementSibling.textContent=(ok?"✅ Correcto. ":"❌ Incorrecto. ")+q[2];count(ok);
+ });
+}
+document.getElementById("newTF").onclick=renderTF;
+
+const flashcards=[
+["Poder constituyente","Poder que crea o reforma la Constitución. Originario o derivado."],
+["Poderes constituidos","Órganos creados por la Constitución: Ejecutivo, Legislativo y Judicial."],
+["Supremacía constitucional","La Constitución es superior y las normas inferiores deben respetarla."],
+["Control de constitucionalidad","Verificación de compatibilidad de una norma o acto con la Constitución."],
+["Interpretación constitucional","Determinar significado, alcance y aplicación de una norma constitucional."],
+["Originalismo","Da especial importancia al significado original de la Constitución."],
+["Constitución viviente","Considera cambios sociales y circunstancias actuales al aplicar principios constitucionales."],
+["Censura previa","Se intenta impedir una expresión antes de su difusión."],
+["Responsabilidad ulterior","Posibles consecuencias jurídicas después de expresada la manifestación."],
+["Efecto silenciador","El temor a consecuencias puede producir autocensura."],
+["Derecho de réplica","Respuesta o aclaración bajo determinadas condiciones y límites."],
+["Actual malice","Estándar trabajado en Sullivan: conocimiento de falsedad o reckless disregard."],
+["Campillay","Forma de presentar información y protección del honor."],
+["Editorial Río Negro","Publicidad oficial y libertad de prensa."],
+["Ponzetti de Balbín","Privacidad y publicación de fotografía."],
+["Olmedo Bustos","Prohibición de película y censura previa."],
+["Servini de Cubría","Restricción previa de segmento televisivo."],
+["Ekmekdjian c. Sofovich","Derecho de réplica."],
+["Petric","Alcance y límites del derecho de réplica."]
+];
+function renderFlash(){const f=flashcards[flashIndex];document.getElementById("flashCard").innerHTML=flashFront?`<div>${f[0]}<small>Hacé clic para revelar</small></div>`:`<div>${f[1]}<small>Hacé clic para volver</small></div>`;document.getElementById("flashCount").textContent=`${flashIndex+1} / ${flashcards.length}`}
+document.getElementById("flashCard").onclick=()=>{flashFront=!flashFront;renderFlash()};
+document.getElementById("nextFlash").onclick=()=>{flashIndex=(flashIndex+1)%flashcards.length;flashFront=true;renderFlash()};
+document.getElementById("prevFlash").onclick=()=>{flashIndex=(flashIndex-1+flashcards.length)%flashcards.length;flashFront=true;renderFlash()};
+
+function renderNewCases(){
+ const bank=sample(newCaseBank,4);
+ document.getElementById("newCasesArea").innerHTML=bank.map((q,i)=>`<div class="question"><h3>${i+1}. Caso nuevo</h3><p><b>Situación:</b> ${q[0]}</p><p><b>Consigna:</b> ${q[1]}</p><textarea placeholder="Escribí tu análisis como si fuera el parcial..."></textarea><button class="mini reveal">Ver guía de corrección</button><div class="answer"><b>Guía:</b> ${q[2]}</div></div>`).join("");
+ document.querySelectorAll(".reveal").forEach(b=>b.onclick=()=>b.nextElementSibling.classList.toggle("show"));
+}
+document.getElementById("newCaseSet").onclick=renderNewCases;
+
+function renderDevelop(){
+ const bank=sample(developmentBank,5);
+ document.getElementById("developArea").innerHTML=bank.map((q,i)=>`<div class="question"><h3>${i+1}. ${q}</h3><textarea placeholder="Escribí tu respuesta..."></textarea><button class="mini reveal">Checklist</button><div class="answer"><b>Para una respuesta fuerte:</b> definición precisa + conceptos relacionados + explicación del conflicto + aplicación al caso si corresponde. Evitá limitarte a nombrar conceptos.</div></div>`).join("");
+}
+document.getElementById("newDevelop").onclick=renderDevelop;
+
+function startExam(){
+ const qs=[
+ ...sample(mcqBanks.concepts,4).map(x=>({t:"mcq",q:x})),
+ ...sample(mcqBanks.cases,4).map(x=>({t:"mcq",q:x})),
+ ...sample(fillBank,3).map(x=>({t:"fill",q:x})),
+ ...sample(tfBank,3).map(x=>({t:"tf",q:x})),
+ ...sample(newCaseBank,3).map(x=>({t:"case",q:x})),
+ ...sample(developmentBank,3).map(x=>({t:"dev",q:[x]}))
+ ].sort(()=>Math.random()-.5);
+ let n=0;
+ document.getElementById("examArea").innerHTML=`<div class="panel" style="margin-top:15px"><h3>SIMULACRO ACTIVO · ${qs.length} consignas</h3><div id="examQuestions"></div></div>`;
+ const area=document.getElementById("examQuestions");
+ qs.forEach(item=>{
+  n++;
+  if(item.t==="mcq"){const q=item.q;area.innerHTML+=`<div class="question"><h3>${n}. ${q[0]}</h3><div class="opts">${q[1].map((o,j)=>`<button data-j="${j}">${String.fromCharCode(65+j)}) ${o}</button>`).join("")}</div><div class="feedback"></div></div>`}
+  else if(item.t==="fill"){area.innerHTML+=`<div class="question"><h3>${n}. ${item.q[0]}</h3><input class="input" placeholder="Respuesta"><button class="mini exam-fill" data-answer="${item.q[1]}">Comprobar</button><div class="feedback"></div></div>`}
+  else if(item.t==="tf"){area.innerHTML+=`<div class="question"><h3>${n}. ${item.q[0]}</h3><div class="opts"><button data-v="true">Verdadero</button><button data-v="false">Falso</button></div><div class="feedback"></div></div>`}
+  else if(item.t==="case"){area.innerHTML+=`<div class="question"><h3>${n}. Caso integrador</h3><p>${item.q[0]}</p><p><b>${item.q[1]}</b></p><textarea placeholder="Desarrollá..."></textarea><button class="mini reveal">Ver guía</button><div class="answer">${item.q[2]}</div></div>`}
+  else area.innerHTML+=`<div class="question"><h3>${n}. Desarrollo</h3><p>${item.q[0]}</p><textarea placeholder="Desarrollá como en el parcial..."></textarea><div class="note">Esta consigna requiere corrección manual.</div></div>`;
+ });
+ // Bind MCQ/TF inside exam
+ area.querySelectorAll(".opts button").forEach(btn=>btn.onclick=()=>{
+   const box=btn.parentElement, qel=box.parentElement;
+   if([...box.children].some(x=>x.classList.contains("correct")||x.classList.contains("wrong")))return;
+   const questionText=qel.querySelector("h3").textContent;
+   const source=[...mcqBanks.concepts,...mcqBanks.cases,...mcqBanks.hard,...tfBank];
+   const q=source.find(x=>questionText.includes(String(x[0]).slice(0,35)));
+   if(btn.dataset.j!==undefined && q){const ok=+btn.dataset.j===q[2];btn.classList.add(ok?"correct":"wrong");if(!ok)box.children[q[2]].classList.add("correct");box.nextElementSibling.textContent=ok?"✅ Correcto.":"❌ Incorrecto.";count(ok)}
+   else if(btn.dataset.v!==undefined && q){const ok=(btn.dataset.v==="true")===q[1];btn.classList.add(ok?"correct":"wrong");if(!ok)box.children[q[1]?0:1].classList.add("correct");box.nextElementSibling.textContent=ok?"✅ Correcto.":"❌ Incorrecto.";count(ok)}
+ });
+ area.querySelectorAll(".exam-fill").forEach(b=>b.onclick=()=>{const q=b.parentElement,inp=q.querySelector("input"),ok=inp.value.trim().toLowerCase().includes(b.dataset.answer.toLowerCase());q.querySelector(".feedback").textContent=ok?"✅ Correcto.":"❌ Revisá. Respuesta: "+b.dataset.answer;count(ok);b.disabled=true});
+ area.querySelectorAll(".reveal").forEach(b=>b.onclick=()=>b.nextElementSibling.classList.toggle("show"));
+}
+document.getElementById("startExam").onclick=startExam;
+
+function openModal(content){document.getElementById("modalContent").innerHTML=content;document.getElementById("modal").classList.add("show")}
+function closeModal(){document.getElementById("modal").classList.remove("show")}
+document.getElementById("closeModal").onclick=closeModal;
+document.getElementById("modal").onclick=e=>{if(e.target.id==="modal")closeModal()};
+
+renderClasses();renderCases();renderMCQ();renderFill();renderMatch();renderTF();renderFlash();renderNewCases();renderDevelop();updateStats();
+</script>
+</body>
+</html>
