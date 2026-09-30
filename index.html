@@ -9,7 +9,19 @@
 :root{--nav:#183043;--nav2:#10232f;--paper:#f5efe2;--paper2:#fffaf0;--ink:#202b34;--muted:#68737a;--gold:#b79554;--red:#8c3e35;--blue:#355f7c;--green:#3b7b64;--line:#d8c8aa;--shadow:0 12px 30px rgba(50,39,22,.11)}
 *{box-sizing:border-box} body{margin:0;color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:radial-gradient(circle at 12% 15%,rgba(136,99,46,.09),transparent 25%),radial-gradient(circle at 88% 82%,rgba(53,95,124,.10),transparent 30%),repeating-linear-gradient(0deg,rgba(78,54,26,.018) 0 1px,transparent 1px 5px),#e9dfcc}
 .app{min-height:100vh}.sidebar{position:fixed;z-index:20;inset:0 auto 0 0;width:265px;padding:16px 13px;background:linear-gradient(180deg,#173144,#102330 70%,#0e1c25);color:#f5f0e4;box-shadow:6px 0 24px rgba(20,21,18,.18);overflow:auto}.brand{padding:10px 12px 17px;border-bottom:1px solid rgba(255,255,255,.13);margin-bottom:10px}.brand small{font-weight:900;font-size:10px;color:#d8bc71;letter-spacing:.15em}.brand h1{font:700 24px Georgia,serif;margin:8px 0 0}.nav{display:grid;gap:3px}.nav button{width:100%;border:0;background:transparent;color:#dae3e8;padding:11px 12px;border-radius:9px;text-align:left;font-weight:800;cursor:pointer}.nav button:hover,.nav button.active{background:#29495f;color:white}.n{display:inline-block;width:27px}.side{margin-top:15px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);border-radius:12px;padding:13px}.side small{color:#b9c5cc}.pct{font-size:30px;font-weight:900;margin-top:4px}.bar{height:7px;background:#324653;border-radius:99px;overflow:hidden;margin:8px 0}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#d6b66b,#71a78c)}
-.main{margin-left:265px;width:calc(100% - 265px);max-width:1800px;padding:24px 32px 60px}.view{display:none}.view.active{display:block}.hero{min-height:355px;padding:42px;border:1px solid #d0bea0;border-radius:18px;box-shadow:var(--shadow);background:linear-gradient(90deg,rgba(246,239,226,.97) 0 55%,rgba(246,239,226,.65)),radial-gradient(circle at 82% 32%,rgba(53,95,124,.20),transparent 30%),radial-gradient(circle at 73% 70%,rgba(140,62,53,.13),transparent 22%),#eadfcb;position:relative;overflow:hidden}.hero:after{content:"⚖️  🇦🇷  📜  🏛️";position:absolute;right:27px;bottom:18px;font-size:42px;opacity:.15;letter-spacing:9px}.ey{display:inline-block;padding:7px 12px;background:#223f54;color:#e4ca85;border-radius:999px;font-size:10px;font-weight:900;letter-spacing:.14em}.hero h2{font:700 clamp(44px,6vw,78px)/.92 Georgia,serif;max-width:850px;margin:20px 0 13px;letter-spacing:-.035em}.hero h2 span{color:var(--red)}.hero p{max-width:850px;font:18px/1.55 Georgia,serif;color:#4e5960}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.btn,.mini{border:1px solid #c9b894;background:#f7f0e1;color:#294254;border-radius:9px;padding:10px 13px;font-weight:850;cursor:pointer}.btn.primary{background:var(--blue);border-color:var(--blue);color:white}.btn.gold{background:var(--gold);border-color:var(--gold);color:white}.btn.red{background:var(--red);border-color:var(--red);color:white}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:17px 0}.tile,.panel,.classcard,.casecard,.question{background:rgba(255,250,240,.95);border:1px solid var(--line);border-radius:14px;box-shadow:0 5px 16px rgba(61,45,25,.07)}.tile{padding:16px}.tile .icon{font-size:26px}.tile h3{font:700 20px Georgia,serif;margin:7px 0}.tile p{color:var(--muted);line-height:1.45;margin:0}.panel{padding:20px;margin:18px 0}.head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:15px}.head h2{font:700 28px Georgia,serif;margin:0}.head p{margin:5px 0 0;color:var(--muted)}.search{width:100%;padding:12px 13px;border:1px solid #ccb995;border-radius:9px;background:#fffdf7;color:var(--ink);outline:none}.classgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.classcard{padding:15px;min-height:182px}.tag{font-size:10px;font-weight:900;letter-spacing:.1em;color:var(--red)}.classcard h3{font:700 19px Georgia,serif;margin:7px 0}.classcard p{font-size:13px;color:var(--muted);line-height:1.45}.concept-btn{width:100%;text-align:left;border:0;background:transparent;color:inherit;padding:0;cursor:pointer}.concept-btn .classcard{height:100%;transition:.16s}.concept-btn:hover .classcard{transform:translateY(-2px);box-shadow:0 8px 22px rgba(61,45,25,.11);border-color:#b9a479}.casegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.casecard{padding:16px;min-height:215px}.casecard h3{font:700 20px Georgia,serif;margin:7px 0}.topic{display:inline-block;background:#eae0d0;border:1px solid #d7c5a6;border-radius:999px;padding:5px 8px;font-size:11px;font-weight:800;color:#43535d}.casecard p{font-size:14px;line-height:1.5;color:#5f6970}.casecard strong{color:#294d67}.twocol{display:grid;grid-template-columns:1.2fr .8fr;gap:15px}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{display:inline-block;background:#ebe0cf;border:1px solid #d2c09e;border-radius:999px;padding:8px 10px;font-size:13px;font-weight:750}.subnav{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 3px}.subnav button{border:1px solid #cdbb9d;background:#eee4d4;color:#315066;padding:9px 12px;border-radius:8px;font-weight:850;cursor:pointer}.subnav button.active{background:#294d67;color:#fff}.q{padding:16px;margin:11px 0}.q h3{font:700 19px Georgia,serif;margin:0 0 11px}.opts{display:grid;gap:7px}.opts button{border:1px solid #d1c0a3;background:#f3eadb;color:#293a45;padding:11px;border-radius:8px;text-align:left;cursor:pointer}.opts button:hover{background:#ebe0ce}.opts button.correct{background:#dfeee7;border-color:#6ca58f}.opts button.wrong{background:#f2ded9;border-color:#c17469}.feedback{margin-top:9px;color:#5d686e;font-size:13px;line-height:1.5}.input,.textarea{width:100%;border:1px solid #cdbb9d;background:#fffdf7;color:var(--ink);border-radius:8px;padding:11px}.textarea{min-height:150px;resize:vertical}.answer{display:none;margin-top:9px;padding:11px;border-left:3px solid var(--gold);background:#f0e6d4;border-radius:0 8px 8px 0;line-height:1.5}.answer.show{display:block}.scorebox{padding:14px;border:1px solid #d3c09c;background:#eee2cf;border-radius:10px}.progressrow{display:flex;justify-content:space-between;gap:10px;align-items:center}.history{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.history .h{padding:14px;background:#f4eadb;border:1px solid #d6c3a4;border-radius:10px}.history b{display:block;color:var(--red);font:700 18px Georgia,serif;margin-bottom:4px}.flash{min-height:270px;background:linear-gradient(135deg,#2c526d,#173546);border-radius:14px;color:white;display:flex;justify-content:center;align-items:center;text-align:center;padding:30px;font:700 31px Georgia,serif;cursor:pointer;box-shadow:var(--shadow)}.flash small{display:block;font:600 13px Inter,sans-serif;color:#dce7ed;margin-top:14px}.modal{display:none;position:fixed;z-index:60;inset:0;background:rgba(21,25,27,.62);align-items:center;justify-content:center;padding:20px}.modal.show{display:flex}.modalbox{max-width:850px;max-height:88vh;overflow:auto;background:#fffaf0;border:1px solid #cdbb9d;border-radius:14px;padding:24px;box-shadow:0 20px 65px rgba(0,0,0,.28)}.close{float:right;border:0;background:#eadfce;border-radius:7px;padding:7px 9px;cursor:pointer}.muted{color:var(--muted)}.center{text-align:center}.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.time{background:#f3e8d7;border:1px solid #d8c5a4;border-radius:10px;padding:13px}.time b{display:block;color:var(--red);font:700 17px Georgia,serif;margin-bottom:4px}
+.main{margin-left:265px;width:calc(100% - 265px);max-width:1800px;padding:24px 32px 60px}.view{display:none}.view.active{display:block}.hero{min-height:355px;padding:42px;border:1px solid #d0bea0;border-radius:18px;box-shadow:var(--shadow);background:linear-gradient(90deg,rgba(246,239,226,.97) 0 55%,rgba(246,239,226,.65)),radial-gradient(circle at 82% 32%,rgba(53,95,124,.20),transparent 30%),radial-gradient(circle at 73% 70%,rgba(140,62,53,.13),transparent 22%),#eadfcb;position:relative;overflow:hidden}.hero:after{content:"⚖️  🇦🇷  📜  🏛️";position:absolute;right:27px;bottom:18px;font-size:42px;opacity:.15;letter-spacing:9px}.ey{display:inline-block;padding:7px 12px;background:#223f54;color:#e4ca85;border-radius:999px;font-size:10px;font-weight:900;letter-spacing:.14em}.hero h2{font:700 clamp(44px,6vw,78px)/.92 Georgia,serif;max-width:850px;margin:20px 0 13px;letter-spacing:-.035em}.hero h2 span{color:var(--red)}.hero p{max-width:850px;font:18px/1.55 Georgia,serif;color:#4e5960}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.btn,.mini{border:1px solid #c9b894;background:#f7f0e1;color:#294254;border-radius:9px;padding:10px 13px;font-weight:850;cursor:pointer}.btn.primary{background:var(--blue);border-color:var(--blue);color:white}.btn.gold{background:var(--gold);border-color:var(--gold);color:white}.btn.red{background:var(--red);border-color:var(--red);color:white}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:17px 0}
+.faculty{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:17px 0}
+.faculty-card{display:flex;gap:13px;align-items:center;background:linear-gradient(135deg,#213e52,#173142);color:#f8f1e4;border:1px solid #31566e;border-radius:14px;padding:16px;box-shadow:0 8px 22px rgba(35,49,58,.15)}
+.faculty-icon{font-size:28px;min-width:42px;text-align:center}
+.faculty-card span{display:block;font-size:10px;letter-spacing:.12em;font-weight:900;color:#d9bd73;margin-bottom:4px}
+.faculty-card strong{display:block;font:700 20px Georgia,serif}
+.faculty-card small{display:block;color:#b9c8d0;margin-top:3px}
+.ai-panel{border:1px solid #cdbb9d;background:linear-gradient(135deg,#f1e6d3,#fffaf0);padding:14px;border-radius:10px;margin-top:11px}
+.ai-title{font-weight:900;color:#294c67}
+.ai-copy{color:#66727a;font-size:13px;line-height:1.5;margin:5px 0}
+.ai-grid{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.badge{display:inline-block;border-radius:999px;padding:5px 8px;font-size:11px;font-weight:900;border:1px solid #d0bea0;background:#eadfcf;color:#42545e}
+@media(max-width:850px){.faculty{grid-template-columns:1fr}}.tile,.panel,.classcard,.casecard,.question{background:rgba(255,250,240,.95);border:1px solid var(--line);border-radius:14px;box-shadow:0 5px 16px rgba(61,45,25,.07)}.tile{padding:16px}.tile .icon{font-size:26px}.tile h3{font:700 20px Georgia,serif;margin:7px 0}.tile p{color:var(--muted);line-height:1.45;margin:0}.panel{padding:20px;margin:18px 0}.head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:15px}.head h2{font:700 28px Georgia,serif;margin:0}.head p{margin:5px 0 0;color:var(--muted)}.search{width:100%;padding:12px 13px;border:1px solid #ccb995;border-radius:9px;background:#fffdf7;color:var(--ink);outline:none}.classgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.classcard{padding:15px;min-height:182px}.tag{font-size:10px;font-weight:900;letter-spacing:.1em;color:var(--red)}.classcard h3{font:700 19px Georgia,serif;margin:7px 0}.classcard p{font-size:13px;color:var(--muted);line-height:1.45}.concept-btn{width:100%;text-align:left;border:0;background:transparent;color:inherit;padding:0;cursor:pointer}.concept-btn .classcard{height:100%;transition:.16s}.concept-btn:hover .classcard{transform:translateY(-2px);box-shadow:0 8px 22px rgba(61,45,25,.11);border-color:#b9a479}.casegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.casecard{padding:16px;min-height:215px}.casecard h3{font:700 20px Georgia,serif;margin:7px 0}.topic{display:inline-block;background:#eae0d0;border:1px solid #d7c5a6;border-radius:999px;padding:5px 8px;font-size:11px;font-weight:800;color:#43535d}.casecard p{font-size:14px;line-height:1.5;color:#5f6970}.casecard strong{color:#294d67}.twocol{display:grid;grid-template-columns:1.2fr .8fr;gap:15px}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{display:inline-block;background:#ebe0cf;border:1px solid #d2c09e;border-radius:999px;padding:8px 10px;font-size:13px;font-weight:750}.subnav{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 3px}.subnav button{border:1px solid #cdbb9d;background:#eee4d4;color:#315066;padding:9px 12px;border-radius:8px;font-weight:850;cursor:pointer}.subnav button.active{background:#294d67;color:#fff}.q{padding:16px;margin:11px 0}.q h3{font:700 19px Georgia,serif;margin:0 0 11px}.opts{display:grid;gap:7px}.opts button{border:1px solid #d1c0a3;background:#f3eadb;color:#293a45;padding:11px;border-radius:8px;text-align:left;cursor:pointer}.opts button:hover{background:#ebe0ce}.opts button.correct{background:#dfeee7;border-color:#6ca58f}.opts button.wrong{background:#f2ded9;border-color:#c17469}.feedback{margin-top:9px;color:#5d686e;font-size:13px;line-height:1.5}.input,.textarea{width:100%;border:1px solid #cdbb9d;background:#fffdf7;color:var(--ink);border-radius:8px;padding:11px}.textarea{min-height:150px;resize:vertical}.answer{display:none;margin-top:9px;padding:11px;border-left:3px solid var(--gold);background:#f0e6d4;border-radius:0 8px 8px 0;line-height:1.5}.answer.show{display:block}.scorebox{padding:14px;border:1px solid #d3c09c;background:#eee2cf;border-radius:10px}.progressrow{display:flex;justify-content:space-between;gap:10px;align-items:center}.history{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.history .h{padding:14px;background:#f4eadb;border:1px solid #d6c3a4;border-radius:10px}.history b{display:block;color:var(--red);font:700 18px Georgia,serif;margin-bottom:4px}.flash{min-height:270px;background:linear-gradient(135deg,#2c526d,#173546);border-radius:14px;color:white;display:flex;justify-content:center;align-items:center;text-align:center;padding:30px;font:700 31px Georgia,serif;cursor:pointer;box-shadow:var(--shadow)}.flash small{display:block;font:600 13px Inter,sans-serif;color:#dce7ed;margin-top:14px}.modal{display:none;position:fixed;z-index:60;inset:0;background:rgba(21,25,27,.62);align-items:center;justify-content:center;padding:20px}.modal.show{display:flex}.modalbox{max-width:850px;max-height:88vh;overflow:auto;background:#fffaf0;border:1px solid #cdbb9d;border-radius:14px;padding:24px;box-shadow:0 20px 65px rgba(0,0,0,.28)}.close{float:right;border:0;background:#eadfce;border-radius:7px;padding:7px 9px;cursor:pointer}.muted{color:var(--muted)}.center{text-align:center}.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.time{background:#f3e8d7;border:1px solid #d8c5a4;border-radius:10px;padding:13px}.time b{display:block;color:var(--red);font:700 17px Georgia,serif;margin-bottom:4px}
 @media(max-width:1150px){.classgrid{grid-template-columns:repeat(3,1fr)}.grid4{grid-template-columns:repeat(2,1fr)}.casegrid{grid-template-columns:repeat(2,1fr)}.history,.timeline{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:850px){.sidebar{width:72px;padding:8px}.brand h1,.brand small,.side,.label{display:none}.nav button{text-align:center;padding:10px 4px}.main{margin-left:72px;width:calc(100% - 72px);padding:12px}.twocol{grid-template-columns:1fr}}
 @media(max-width:600px){.classgrid,.casegrid,.grid4,.history,.timeline{grid-template-columns:1fr}.hero{padding:26px}.hero h2{font-size:43px}.panel{padding:14px}}
@@ -40,11 +52,19 @@
   <p>Una plataforma por clases para estudiar las 13 clases del primer parcial sin bajar una página infinita. Elegí una clase, entrá a su centro de práctica y entrená con multiple choice, completar, definir, relacionar, V/F, casos, flashcards y desarrollos.</p>
   <div class="actions"><button class="btn primary" data-go="classes">📚 Elegir una clase</button><button class="btn gold" data-go="mcq">🎯 Multiple Choice</button><button class="btn" data-go="cases">⚖️ Estudiar casos</button><button class="btn red" data-go="sim">🏆 Simulacro</button></div>
  </div>
+ <div class="faculty" id="faculty">
+  <div class="faculty-card"><div class="faculty-icon">🎓</div><div><span>PROFESOR DE MAGISTRALES</span><strong>Osvaldo Pérez Sammartino</strong><small>Derechos Fundamentales · UdeSA</small></div></div>
+  <div class="faculty-card"><div class="faculty-icon">📚</div><div><span>TUTOR</span><strong>Juan Pablo Nora</strong><small>Espacio de práctica y seguimiento</small></div></div>
+ </div>
  <div class="grid4">
   <div class="tile"><div class="icon">📚</div><h3>13 clases</h3><p>Cada clase tiene su propio centro de práctica y preguntas específicas.</p></div>
   <div class="tile"><div class="icon">🎯</div><h3>Banco grande</h3><p>Preguntas variadas, aleatorias y con historial para reducir repeticiones.</p></div>
   <div class="tile"><div class="icon">⚖️</div><h3>Casos</h3><p>Todos los casos incluidos en el programa de las clases trabajadas.</p></div>
   <div class="tile"><div class="icon">🧠</div><h3>Muchos formatos</h3><p>MCQ, V/F, completar, definir, relacionar, flashcards y desarrollo.</p></div>
+ </div>
+ <div class="panel" style="background:linear-gradient(135deg,#efe2ce,#fffaf0)">
+  <div class="head"><div><h2>🤖 Corrección de desarrollos</h2><p>Escribí como en el parcial. La web tolera errores de escritura y también te prepara un prompt para una corrección profunda con una IA.</p></div></div>
+  <div class="chips"><span class="chip">✔ Ortografía no penaliza</span><span class="chip">✔ Precisión jurídica</span><span class="chip">✔ Responde a la consigna</span><span class="chip">✔ Relación entre casos y conceptos</span></div>
  </div>
  <div class="twocol">
   <div class="panel"><div class="head"><div><h2>🚀 Empezá por una clase</h2><p>Entrás, elegís el formato y practicás solo ese contenido.</p></div></div><div id="homeClasses" class="classgrid"></div></div>
@@ -81,7 +101,7 @@
 
 <section class="view" id="view-mcq">
  <div class="panel">
-  <div class="head"><div><h2>🎯 Multiple Choice</h2><p>Elegí una clase o mezclá las 13. Cada ronda trae preguntas nuevas.</p></div><button class="btn primary" id="newGlobalMCQ" onclick="startGlobalMCQ()">🔄 Nuevas</button></div>
+  <div class="head"><div><h2>🎯 Multiple Choice</h2><p>Elegí una clase o mezclá las 13. Las alternativas están armadas para que tengas que distinguir conceptos cercanos.</p></div><button class="btn primary" id="newGlobalMCQ" onclick="startGlobalMCQ()">🔄 Nuevas</button></div>
   <div class="subnav" id="globalModes"></div>
   <div id="globalStartBox" class="scorebox" style="margin-top:12px">
    <h3 style="margin:0 0 6px;font-family:Georgia,serif">¿Listo para empezar?</h3>
@@ -192,8 +212,24 @@ document.getElementById("backClasses").onclick=()=>showView("classes");
 
 function classPool(id){
  const c=DATA.classes.find(x=>x.id===id);let arr=[];
- c.facts.forEach((f,fi)=>f.stems.forEach((s,si)=>arr.push({id:`c${id}-${fi}-${si}`,q:s,a:f.a,d:f.d,exp:`Idea clave: ${f.a}.` })));
+ c.facts.forEach((f,fi)=>f.stems.forEach((s,si)=>arr.push({id:`c${id}-${fi}-${si}`,classId:id,q:s,a:f.a,d:f.d,exp:`Idea clave: ${f.a}.` })));
  return arr;
+}
+function plausibleOptions(q,pool){
+ const target=norm(q.a);
+ const candidates=[];
+ const seen=new Set([target]);
+ const all=[...(q.d||[]),...pool.filter(x=>x.id!==q.id).map(x=>x.a)];
+ for(const s of all){
+   const n=norm(s); if(!n||seen.has(n)) continue;
+   seen.add(n);
+   const sameClass = q.classId && pool.find(x=>x.id===q.id)?.classId===q.classId;
+   const len=Math.abs(String(s).length-String(q.a).length);
+   candidates.push({s,score:(sameClass?3:0)-len/120+Math.random()*.18});
+ }
+ const picked=candidates.sort((a,b)=>b.score-a.score).slice(0,3).map(x=>x.s);
+ if(picked.length<3) return [...picked,...(q.d||[])].filter((x,i,a)=>a.findIndex(y=>norm(y)===norm(x))===i).slice(0,3);
+ return picked;
 }
 function tfPool(id){
  const c=DATA.classes.find(x=>x.id===id), out=[];
@@ -233,19 +269,25 @@ function renderMixed(id){
  renderMCQ(classPool(id).slice(0,6),`class${id}mixedmcq`,"mixmcq",6);
  renderTF(tfPool(id).slice(0,4),`class${id}mixedtf`,"mixtf",4);
  renderFill(fillPool(id).slice(0,3),`class${id}mixedfill`,"mixfill",3);
- const ds=DATA.developments[String(id)]||[];document.getElementById("mixdev").innerHTML=ds.length?`<p>${ds[Math.floor(Math.random()*ds.length)]}</p><textarea class="textarea" placeholder="Respondé como en el parcial..."></textarea><button class="mini analyze">🔎 Analizar conceptos</button><div class="feedback"></div>`:"";
+ const ds=DATA.developments[String(id)]||[];document.getElementById("mixdev").innerHTML=ds.length?`<p>${ds[Math.floor(Math.random()*ds.length)]}</p><textarea class="textarea" placeholder="Respondé como en el parcial..."></textarea><div class="ai-grid"><button class="mini analyze">🔎 Corrección rápida</button><button class="mini copy-ai">🤖 Copiar prompt para IA</button></div><div class="feedback"></div>`:"";
+ document.getElementById("mixdev")?.querySelector(".analyze")?.addEventListener("click",e=>{let box=document.getElementById("mixdev"),txt=box.querySelector("textarea").value||"",question=box.querySelector("p").innerText;box.querySelector(".feedback").innerHTML=conceptAnalysis(txt,question)});
+ document.getElementById("mixdev")?.querySelector(".copy-ai")?.addEventListener("click",e=>{let box=document.getElementById("mixdev"),txt=box.querySelector("textarea").value||"",question=box.querySelector("p").innerText;copyCorrectionPrompt(question,txt,e.currentTarget)});
 }
 function renderMCQ(pool,key,target,n=MCQ_PER_VIEW){
  const area=document.getElementById(target);if(!area)return;
  const qs=unseen(pool,key,Math.min(n,pool.length));
- area.innerHTML=qs.map((q,i)=>`<div class="q question" data-qid="${q.id}"><h3>${i+1}. ${q.q}</h3><div class="opts">${shuffle([q.a,...q.d]).map((o,j)=>`<button data-answer="${encodeURIComponent(o)}">${String.fromCharCode(65+j)}) ${o}</button>`).join("")}</div><div class="feedback"></div></div>`).join("");
+ area.innerHTML=qs.map((q,i)=>{
+   const opts=shuffle([q.a,...plausibleOptions(q,pool)]);
+   return `<div class="q question" data-qid="${q.id}"><h3>${i+1}. ${q.q}</h3><div class="opts">${opts.map((o,j)=>`<button data-answer="${encodeURIComponent(o)}">${String.fromCharCode(65+j)}) ${o}</button>`).join("")}</div><div class="feedback"></div></div>`;
+ }).join("");
  area.querySelectorAll(".opts button").forEach(b=>b.onclick=()=>{
   const qel=b.closest(".question"),qid=qel.dataset.qid,q=pool.find(x=>x.id===qid);const opts=qel.querySelector(".opts");
   if([...opts.children].some(x=>x.classList.contains("correct")||x.classList.contains("wrong")))return;
   const chosen=decodeURIComponent(b.dataset.answer),ok=norm(chosen)===norm(q.a);
   b.classList.add(ok?"correct":"wrong");
   if(!ok)[...opts.children].find(x=>norm(decodeURIComponent(x.dataset.answer))===norm(q.a))?.classList.add("correct");
-  qel.querySelector(".feedback").textContent=(ok?"✅ Correcto. ":"❌ Incorrecto. ")+q.exp;count(ok);
+  qel.querySelector(".feedback").innerHTML=(ok?"✅ <b>Correcto.</b> ":"❌ <b>Incorrecto.</b> ")+q.exp;
+  count(ok);
  });
 }
 function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
@@ -304,9 +346,40 @@ function renderCasesForClass(pool){
  const area=document.getElementById("classArea");if(!pool.length){area.innerHTML=`<div class="panel"><p class="muted">En esta clase el programa no lista un caso jurisprudencial específico. Podés practicar conceptos y situaciones de aplicación desde las otras categorías.</p></div>`;return}
  area.innerHTML=pool.map((c,i)=>`<div class="casecard"><div class="tag">CASO</div><h3>${c.name}</h3><span class="topic">${c.concept}</span><p><b>Qué pasó:</b> ${c.what}</p><button class="mini" onclick='openModal(${JSON.stringify(`<h2>${c.name}</h2><p><b>Qué pasó:</b> ${c.what}</p><p><b>Concepto principal:</b> ${c.concept}</p><p><b>Cómo reconocerlo:</b> buscá primero el conflicto, después el derecho involucrado y finalmente la doctrina/caso que permite analizarlo.</p>`).replace(/'/g,"&#39;")})'>Estudiar ficha →</button></div>`).join("");
 }
+function buildCorrectionPrompt(question,answer){
+ return `Actuá como corrector de un parcial universitario de Derechos Fundamentales de UdeSA.
+Consigna: ${question}
+Respuesta del alumno: ${answer}
+Corregí sin penalizar faltas de ortografía, tildes o pequeños errores de escritura. Evaluá:
+1) comprensión del concepto,
+2) precisión jurídica,
+3) si responde exactamente lo preguntado,
+4) relación entre conceptos/casos cuando corresponda.
+Dame: nota estimada sobre 10, qué está bien, qué falta o está impreciso, y una versión mejorada breve. No inventes contenido que no esté relacionado con la consigna.`;
+}
+function copyCorrectionPrompt(question,answer,button){
+ const prompt=buildCorrectionPrompt(question,answer);
+ navigator.clipboard?.writeText(prompt).then(()=>{button.textContent="✅ Prompt copiado";setTimeout(()=>button.textContent="🤖 Copiar prompt para IA",1600)}).catch(()=>openModal(`<h2>🤖 Prompt para IA</h2><textarea class="textarea" readonly>${prompt.replace(/</g,"&lt;")}</textarea>`));
+}
 function renderDevelop(arr){
- const area=document.getElementById("classArea");area.innerHTML=(arr||[]).slice(0,6).map((q,i)=>`<div class="q question"><h3>${i+1}. ${q}</h3><textarea class="textarea" placeholder="Respondé como en el parcial..."></textarea><button class="mini analyze">🔎 Analizar respuesta</button><div class="feedback"></div></div>`).join("");
- area.querySelectorAll(".analyze").forEach(b=>b.onclick=()=>{let txt=b.closest(".question").querySelector("textarea").value||"";b.nextElementSibling.textContent="";b.nextElementSibling.innerHTML=conceptAnalysis(txt,"la consigna");});
+ const area=document.getElementById("classArea");
+ area.innerHTML=(arr||[]).slice(0,6).map((q,i)=>`
+ <div class="q question">
+  <h3>${i+1}. ${q}</h3>
+  <textarea class="textarea" placeholder="Respondé como en el parcial..."></textarea>
+  <div class="ai-panel"><div class="ai-title">🤖 Corrección asistida</div><div class="ai-copy">Podés hacer una revisión rápida dentro de la página o copiar un prompt listo para pegar en una IA para una corrección más profunda.</div>
+   <div class="ai-grid"><button class="mini analyze">🔎 Corrección rápida</button><button class="mini copy-ai">🤖 Copiar prompt para IA</button></div>
+   <div class="feedback"></div>
+  </div>
+ </div>`).join("");
+ area.querySelectorAll(".analyze").forEach(b=>b.onclick=()=>{
+   const qel=b.closest(".question"),txt=qel.querySelector("textarea").value||"",question=qel.querySelector("h3").innerText.replace(/^\d+\.\s*/,"");
+   qel.querySelector(".feedback").innerHTML=conceptAnalysis(txt,question);
+ });
+ area.querySelectorAll(".copy-ai").forEach(b=>b.onclick=()=>{
+   const qel=b.closest(".question"),txt=qel.querySelector("textarea").value||"",question=qel.querySelector("h3").innerText.replace(/^\d+\.\s*/,"");
+   copyCorrectionPrompt(question,txt,b);
+ });
 }
 function classFlashCards(id){
  const c=DATA.classes.find(x=>x.id===id);let arr=[];
@@ -401,7 +474,9 @@ function startSim(){
  f.forEach(q=>{n++;sim.insertAdjacentHTML("beforeend",`<div class="q question" data-ans="${q.a}"><h3>${n}. ${q.q}</h3><input class="input"><button class="mini simfill">Comprobar</button><div class="feedback"></div></div>`)});
  ca.forEach(c=>{n++;sim.insertAdjacentHTML("beforeend",`<div class="q question"><h3>${n}. Caso · ${c.name}</h3><p><b>Situación:</b> ${c.what}</p><p><b>Consigna:</b> Identificá el derecho/problema y explicá por qué el concepto principal del caso es relevante.</p><textarea class="textarea"></textarea><div class="answer"><b>Guía:</b> ${c.concept}</div><button class="mini reveal">Ver guía</button></div>`)});
  de.forEach(d=>{n++;sim.insertAdjacentHTML("beforeend",`<div class="q question"><h3>${n}. Desarrollo</h3><p>${d}</p><textarea class="textarea"></textarea><button class="mini analyze">🔎 Analizar</button><div class="feedback"></div></div>`)});
- bindSimMCQ(sim,m);bindSimTF(sim,t);sim.querySelectorAll(".simfill").forEach(b=>b.onclick=()=>{let q=b.closest(".question"),ok=approx(q.querySelector("input").value,q.dataset.ans);q.querySelector(".feedback").textContent=ok?"✅ Correcto.":"❌ Respuesta esperada: "+q.dataset.ans;b.disabled=true;count(ok)});sim.querySelectorAll(".reveal").forEach(b=>b.onclick=()=>b.previousElementSibling.classList.toggle("show"));sim.querySelectorAll(".analyze").forEach(b=>b.onclick=()=>{let q=b.closest(".question"),txt=q.querySelector("textarea").value;q.querySelector(".feedback").innerHTML=conceptAnalysis(txt,"la consigna")});
+ bindSimMCQ(sim,m);bindSimTF(sim,t);sim.querySelectorAll(".simfill").forEach(b=>b.onclick=()=>{let q=b.closest(".question"),ok=approx(q.querySelector("input").value,q.dataset.ans);q.querySelector(".feedback").textContent=ok?"✅ Correcto.":"❌ Respuesta esperada: "+q.dataset.ans;b.disabled=true;count(ok)});sim.querySelectorAll(".reveal").forEach(b=>b.onclick=()=>b.previousElementSibling.classList.toggle("show"));
+ sim.querySelectorAll(".analyze").forEach(b=>b.onclick=()=>{let q=b.closest(".question"),txt=q.querySelector("textarea").value||"",question=q.querySelector("p")?.innerText||"la consigna";q.querySelector(".feedback").innerHTML=conceptAnalysis(txt,question)});
+ sim.querySelectorAll(".copy-ai").forEach(b=>b.onclick=()=>{let q=b.closest(".question"),txt=q.querySelector("textarea").value||"",question=q.querySelector("p")?.innerText||"la consigna";copyCorrectionPrompt(question,txt,b)});
 }
 function qHTML(n,q){let opts=shuffle([q.a,...q.d]);return `<div class="q question" data-correct="${encodeURIComponent(q.a)}"><h3>${n}. ${q.q}</h3><div class="opts">${opts.map(o=>`<button data-o="${encodeURIComponent(o)}">${String.fromCharCode(65+opts.indexOf(o))}) ${o}</button>`).join("")}</div><div class="feedback"></div></div>`}
 function tfHTML(n,q){return `<div class="q question" data-tf="${q.a}"><h3>${n}. ${q.q}</h3><div class="opts"><button data-v="1">Verdadero</button><button data-v="0">Falso</button></div><div class="feedback"></div></div>`}
@@ -409,7 +484,7 @@ function bindSimMCQ(sim,m){sim.querySelectorAll("[data-correct]").forEach(qel=>{
 function bindSimTF(sim,t){sim.querySelectorAll("[data-tf]").forEach(qel=>qel.querySelectorAll(".opts button").forEach(b=>b.onclick=()=>{let opts=qel.querySelector(".opts");if([...opts.children].some(x=>x.classList.contains("correct")||x.classList.contains("wrong")))return;let expected=String(qel.dataset.tf)==="true",val=b.dataset.v==="1",ok=val===expected;b.classList.add(ok?"correct":"wrong");if(!ok)opts.children[expected?0:1].classList.add("correct");qel.querySelector(".feedback").textContent=ok?"✅ Correcto.":"❌ Incorrecto.";count(ok)}))}
 document.getElementById("startSim").onclick=startSim;
 
-renderClasses();renderCases();renderConcepts();renderHistory();renderGlobalModes();renderGlobalMCQ();bindGlobalMCQ();drawFlash();updateStats();
+renderClasses();renderCases();renderConcepts();renderHistory();renderGlobalModes();renderGlobalMCQ();drawFlash();updateStats();
 </script>
 </body>
 </html>
