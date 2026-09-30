@@ -9,7 +9,7 @@
 :root{--nav:#183043;--nav2:#10232f;--paper:#f5efe2;--paper2:#fffaf0;--ink:#202b34;--muted:#68737a;--gold:#b79554;--red:#8c3e35;--blue:#355f7c;--green:#3b7b64;--line:#d8c8aa;--shadow:0 12px 30px rgba(50,39,22,.11)}
 *{box-sizing:border-box} body{margin:0;color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:radial-gradient(circle at 12% 15%,rgba(136,99,46,.09),transparent 25%),radial-gradient(circle at 88% 82%,rgba(53,95,124,.10),transparent 30%),repeating-linear-gradient(0deg,rgba(78,54,26,.018) 0 1px,transparent 1px 5px),#e9dfcc}
 .app{min-height:100vh}.sidebar{position:fixed;z-index:20;inset:0 auto 0 0;width:265px;padding:16px 13px;background:linear-gradient(180deg,#173144,#102330 70%,#0e1c25);color:#f5f0e4;box-shadow:6px 0 24px rgba(20,21,18,.18);overflow:auto}.brand{padding:10px 12px 17px;border-bottom:1px solid rgba(255,255,255,.13);margin-bottom:10px}.brand small{font-weight:900;font-size:10px;color:#d8bc71;letter-spacing:.15em}.brand h1{font:700 24px Georgia,serif;margin:8px 0 0}.nav{display:grid;gap:3px}.nav button{width:100%;border:0;background:transparent;color:#dae3e8;padding:11px 12px;border-radius:9px;text-align:left;font-weight:800;cursor:pointer}.nav button:hover,.nav button.active{background:#29495f;color:white}.n{display:inline-block;width:27px}.side{margin-top:15px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);border-radius:12px;padding:13px}.side small{color:#b9c5cc}.pct{font-size:30px;font-weight:900;margin-top:4px}.bar{height:7px;background:#324653;border-radius:99px;overflow:hidden;margin:8px 0}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#d6b66b,#71a78c)}
-.main{margin-left:265px;width:calc(100% - 265px);max-width:1800px;padding:24px 32px 60px}.view{display:none}.view.active{display:block}.hero{min-height:355px;padding:42px;border:1px solid #d0bea0;border-radius:18px;box-shadow:var(--shadow);background:linear-gradient(90deg,rgba(246,239,226,.97) 0 55%,rgba(246,239,226,.65)),radial-gradient(circle at 82% 32%,rgba(53,95,124,.20),transparent 30%),radial-gradient(circle at 73% 70%,rgba(140,62,53,.13),transparent 22%),#eadfcb;position:relative;overflow:hidden}.hero:after{content:"⚖️  🇦🇷  📜  🏛️";position:absolute;right:27px;bottom:18px;font-size:42px;opacity:.15;letter-spacing:9px}.ey{display:inline-block;padding:7px 12px;background:#223f54;color:#e4ca85;border-radius:999px;font-size:10px;font-weight:900;letter-spacing:.14em}.hero h2{font:700 clamp(44px,6vw,78px)/.92 Georgia,serif;max-width:850px;margin:20px 0 13px;letter-spacing:-.035em}.hero h2 span{color:var(--red)}.hero p{max-width:850px;font:18px/1.55 Georgia,serif;color:#4e5960}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.btn,.mini{border:1px solid #c9b894;background:#f7f0e1;color:#294254;border-radius:9px;padding:10px 13px;font-weight:850;cursor:pointer}.btn.primary{background:var(--blue);border-color:var(--blue);color:white}.btn.gold{background:var(--gold);border-color:var(--gold);color:white}.btn.red{background:var(--red);border-color:var(--red);color:white}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:17px 0}.tile,.panel,.classcard,.casecard,.question{background:rgba(255,250,240,.95);border:1px solid var(--line);border-radius:14px;box-shadow:0 5px 16px rgba(61,45,25,.07)}.tile{padding:16px}.tile .icon{font-size:26px}.tile h3{font:700 20px Georgia,serif;margin:7px 0}.tile p{color:var(--muted);line-height:1.45;margin:0}.panel{padding:20px;margin:18px 0}.head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:15px}.head h2{font:700 28px Georgia,serif;margin:0}.head p{margin:5px 0 0;color:var(--muted)}.search{width:100%;padding:12px 13px;border:1px solid #ccb995;border-radius:9px;background:#fffdf7;color:var(--ink);outline:none}.classgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.classcard{padding:15px;min-height:182px}.tag{font-size:10px;font-weight:900;letter-spacing:.1em;color:var(--red)}.classcard h3{font:700 19px Georgia,serif;margin:7px 0}.classcard p{font-size:13px;color:var(--muted);line-height:1.45}.casegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.casecard{padding:16px;min-height:215px}.casecard h3{font:700 20px Georgia,serif;margin:7px 0}.topic{display:inline-block;background:#eae0d0;border:1px solid #d7c5a6;border-radius:999px;padding:5px 8px;font-size:11px;font-weight:800;color:#43535d}.casecard p{font-size:14px;line-height:1.5;color:#5f6970}.casecard strong{color:#294d67}.twocol{display:grid;grid-template-columns:1.2fr .8fr;gap:15px}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{display:inline-block;background:#ebe0cf;border:1px solid #d2c09e;border-radius:999px;padding:8px 10px;font-size:13px;font-weight:750}.subnav{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 3px}.subnav button{border:1px solid #cdbb9d;background:#eee4d4;color:#315066;padding:9px 12px;border-radius:8px;font-weight:850;cursor:pointer}.subnav button.active{background:#294d67;color:#fff}.q{padding:16px;margin:11px 0}.q h3{font:700 19px Georgia,serif;margin:0 0 11px}.opts{display:grid;gap:7px}.opts button{border:1px solid #d1c0a3;background:#f3eadb;color:#293a45;padding:11px;border-radius:8px;text-align:left;cursor:pointer}.opts button:hover{background:#ebe0ce}.opts button.correct{background:#dfeee7;border-color:#6ca58f}.opts button.wrong{background:#f2ded9;border-color:#c17469}.feedback{margin-top:9px;color:#5d686e;font-size:13px;line-height:1.5}.input,.textarea{width:100%;border:1px solid #cdbb9d;background:#fffdf7;color:var(--ink);border-radius:8px;padding:11px}.textarea{min-height:150px;resize:vertical}.answer{display:none;margin-top:9px;padding:11px;border-left:3px solid var(--gold);background:#f0e6d4;border-radius:0 8px 8px 0;line-height:1.5}.answer.show{display:block}.scorebox{padding:14px;border:1px solid #d3c09c;background:#eee2cf;border-radius:10px}.progressrow{display:flex;justify-content:space-between;gap:10px;align-items:center}.history{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.history .h{padding:14px;background:#f4eadb;border:1px solid #d6c3a4;border-radius:10px}.history b{display:block;color:var(--red);font:700 18px Georgia,serif;margin-bottom:4px}.flash{min-height:270px;background:linear-gradient(135deg,#2c526d,#173546);border-radius:14px;color:white;display:flex;justify-content:center;align-items:center;text-align:center;padding:30px;font:700 31px Georgia,serif;cursor:pointer;box-shadow:var(--shadow)}.flash small{display:block;font:600 13px Inter,sans-serif;color:#dce7ed;margin-top:14px}.modal{display:none;position:fixed;z-index:60;inset:0;background:rgba(21,25,27,.62);align-items:center;justify-content:center;padding:20px}.modal.show{display:flex}.modalbox{max-width:850px;max-height:88vh;overflow:auto;background:#fffaf0;border:1px solid #cdbb9d;border-radius:14px;padding:24px;box-shadow:0 20px 65px rgba(0,0,0,.28)}.close{float:right;border:0;background:#eadfce;border-radius:7px;padding:7px 9px;cursor:pointer}.muted{color:var(--muted)}.center{text-align:center}.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.time{background:#f3e8d7;border:1px solid #d8c5a4;border-radius:10px;padding:13px}.time b{display:block;color:var(--red);font:700 17px Georgia,serif;margin-bottom:4px}
+.main{margin-left:265px;width:calc(100% - 265px);max-width:1800px;padding:24px 32px 60px}.view{display:none}.view.active{display:block}.hero{min-height:355px;padding:42px;border:1px solid #d0bea0;border-radius:18px;box-shadow:var(--shadow);background:linear-gradient(90deg,rgba(246,239,226,.97) 0 55%,rgba(246,239,226,.65)),radial-gradient(circle at 82% 32%,rgba(53,95,124,.20),transparent 30%),radial-gradient(circle at 73% 70%,rgba(140,62,53,.13),transparent 22%),#eadfcb;position:relative;overflow:hidden}.hero:after{content:"⚖️  🇦🇷  📜  🏛️";position:absolute;right:27px;bottom:18px;font-size:42px;opacity:.15;letter-spacing:9px}.ey{display:inline-block;padding:7px 12px;background:#223f54;color:#e4ca85;border-radius:999px;font-size:10px;font-weight:900;letter-spacing:.14em}.hero h2{font:700 clamp(44px,6vw,78px)/.92 Georgia,serif;max-width:850px;margin:20px 0 13px;letter-spacing:-.035em}.hero h2 span{color:var(--red)}.hero p{max-width:850px;font:18px/1.55 Georgia,serif;color:#4e5960}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.btn,.mini{border:1px solid #c9b894;background:#f7f0e1;color:#294254;border-radius:9px;padding:10px 13px;font-weight:850;cursor:pointer}.btn.primary{background:var(--blue);border-color:var(--blue);color:white}.btn.gold{background:var(--gold);border-color:var(--gold);color:white}.btn.red{background:var(--red);border-color:var(--red);color:white}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:17px 0}.tile,.panel,.classcard,.casecard,.question{background:rgba(255,250,240,.95);border:1px solid var(--line);border-radius:14px;box-shadow:0 5px 16px rgba(61,45,25,.07)}.tile{padding:16px}.tile .icon{font-size:26px}.tile h3{font:700 20px Georgia,serif;margin:7px 0}.tile p{color:var(--muted);line-height:1.45;margin:0}.panel{padding:20px;margin:18px 0}.head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:15px}.head h2{font:700 28px Georgia,serif;margin:0}.head p{margin:5px 0 0;color:var(--muted)}.search{width:100%;padding:12px 13px;border:1px solid #ccb995;border-radius:9px;background:#fffdf7;color:var(--ink);outline:none}.classgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.classcard{padding:15px;min-height:182px}.tag{font-size:10px;font-weight:900;letter-spacing:.1em;color:var(--red)}.classcard h3{font:700 19px Georgia,serif;margin:7px 0}.classcard p{font-size:13px;color:var(--muted);line-height:1.45}.concept-btn{width:100%;text-align:left;border:0;background:transparent;color:inherit;padding:0;cursor:pointer}.concept-btn .classcard{height:100%;transition:.16s}.concept-btn:hover .classcard{transform:translateY(-2px);box-shadow:0 8px 22px rgba(61,45,25,.11);border-color:#b9a479}.casegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.casecard{padding:16px;min-height:215px}.casecard h3{font:700 20px Georgia,serif;margin:7px 0}.topic{display:inline-block;background:#eae0d0;border:1px solid #d7c5a6;border-radius:999px;padding:5px 8px;font-size:11px;font-weight:800;color:#43535d}.casecard p{font-size:14px;line-height:1.5;color:#5f6970}.casecard strong{color:#294d67}.twocol{display:grid;grid-template-columns:1.2fr .8fr;gap:15px}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{display:inline-block;background:#ebe0cf;border:1px solid #d2c09e;border-radius:999px;padding:8px 10px;font-size:13px;font-weight:750}.subnav{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 3px}.subnav button{border:1px solid #cdbb9d;background:#eee4d4;color:#315066;padding:9px 12px;border-radius:8px;font-weight:850;cursor:pointer}.subnav button.active{background:#294d67;color:#fff}.q{padding:16px;margin:11px 0}.q h3{font:700 19px Georgia,serif;margin:0 0 11px}.opts{display:grid;gap:7px}.opts button{border:1px solid #d1c0a3;background:#f3eadb;color:#293a45;padding:11px;border-radius:8px;text-align:left;cursor:pointer}.opts button:hover{background:#ebe0ce}.opts button.correct{background:#dfeee7;border-color:#6ca58f}.opts button.wrong{background:#f2ded9;border-color:#c17469}.feedback{margin-top:9px;color:#5d686e;font-size:13px;line-height:1.5}.input,.textarea{width:100%;border:1px solid #cdbb9d;background:#fffdf7;color:var(--ink);border-radius:8px;padding:11px}.textarea{min-height:150px;resize:vertical}.answer{display:none;margin-top:9px;padding:11px;border-left:3px solid var(--gold);background:#f0e6d4;border-radius:0 8px 8px 0;line-height:1.5}.answer.show{display:block}.scorebox{padding:14px;border:1px solid #d3c09c;background:#eee2cf;border-radius:10px}.progressrow{display:flex;justify-content:space-between;gap:10px;align-items:center}.history{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.history .h{padding:14px;background:#f4eadb;border:1px solid #d6c3a4;border-radius:10px}.history b{display:block;color:var(--red);font:700 18px Georgia,serif;margin-bottom:4px}.flash{min-height:270px;background:linear-gradient(135deg,#2c526d,#173546);border-radius:14px;color:white;display:flex;justify-content:center;align-items:center;text-align:center;padding:30px;font:700 31px Georgia,serif;cursor:pointer;box-shadow:var(--shadow)}.flash small{display:block;font:600 13px Inter,sans-serif;color:#dce7ed;margin-top:14px}.modal{display:none;position:fixed;z-index:60;inset:0;background:rgba(21,25,27,.62);align-items:center;justify-content:center;padding:20px}.modal.show{display:flex}.modalbox{max-width:850px;max-height:88vh;overflow:auto;background:#fffaf0;border:1px solid #cdbb9d;border-radius:14px;padding:24px;box-shadow:0 20px 65px rgba(0,0,0,.28)}.close{float:right;border:0;background:#eadfce;border-radius:7px;padding:7px 9px;cursor:pointer}.muted{color:var(--muted)}.center{text-align:center}.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.time{background:#f3e8d7;border:1px solid #d8c5a4;border-radius:10px;padding:13px}.time b{display:block;color:var(--red);font:700 17px Georgia,serif;margin-bottom:4px}
 @media(max-width:1150px){.classgrid{grid-template-columns:repeat(3,1fr)}.grid4{grid-template-columns:repeat(2,1fr)}.casegrid{grid-template-columns:repeat(2,1fr)}.history,.timeline{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:850px){.sidebar{width:72px;padding:8px}.brand h1,.brand small,.side,.label{display:none}.nav button{text-align:center;padding:10px 4px}.main{margin-left:72px;width:calc(100% - 72px);padding:12px}.twocol{grid-template-columns:1fr}}
 @media(max-width:600px){.classgrid,.casegrid,.grid4,.history,.timeline{grid-template-columns:1fr}.hero{padding:26px}.hero h2{font-size:43px}.panel{padding:14px}}
@@ -72,7 +72,7 @@
 </section>
 
 <section class="view" id="view-concepts">
- <div class="panel"><div class="head"><div><h2>🧠 Banco de conceptos</h2><p>Definiciones rápidas y distinciones clave.</p></div></div><div id="conceptGrid" class="classgrid"></div></div>
+ <div class="panel"><div class="head"><div><h2>🧠 Banco de conceptos</h2><p>Hacé clic en cualquier tarjeta para ver definición, diferencia y clase.</p></div></div><div id="conceptGrid" class="classgrid"></div></div>
 </section>
 
 <section class="view" id="view-history">
@@ -80,9 +80,15 @@
 </section>
 
 <section class="view" id="view-mcq">
- <div class="panel"><div class="head"><div><h2>🎯 Multiple Choice</h2><p>Podés practicar por clase o todo mezclado.</p></div><button class="btn primary" id="newGlobalMCQ">🔄 Nuevas</button></div>
- <div class="subnav" id="globalModes"></div>
- <div id="globalMcqArea"></div>
+ <div class="panel">
+  <div class="head"><div><h2>🎯 Multiple Choice</h2><p>Elegí una clase o mezclá las 13. Cada ronda trae preguntas nuevas.</p></div><button class="btn primary" id="newGlobalMCQ" onclick="startGlobalMCQ()">🔄 Nuevas</button></div>
+  <div class="subnav" id="globalModes"></div>
+  <div id="globalStartBox" class="scorebox" style="margin-top:12px">
+   <h3 style="margin:0 0 6px;font-family:Georgia,serif">¿Listo para empezar?</h3>
+   <p class="muted" style="margin:0 0 12px">Tocá el botón y van a aparecer las preguntas. Después podés cambiar de clase sin salir de esta sección.</p>
+   <button class="btn primary" id="startGlobalMCQ" onclick="startGlobalMCQ()">▶ Empezar 12 preguntas</button>
+  </div>
+  <div id="globalMcqArea" style="display:none"></div>
  </div>
 </section>
 
@@ -117,7 +123,7 @@ function save(){localStorage.setItem("derecho8stats",JSON.stringify(state.stats)
 function updateStats(){let p=state.stats.a?Math.round(state.stats.c/state.stats.a*100):0;document.getElementById("pct").textContent=p+"%";document.getElementById("bar").style.width=p+"%";document.getElementById("stat").textContent=`${state.stats.a} respuestas · ${state.stats.c} correctas`}
 function count(ok){state.stats.a++;if(ok)state.stats.c++;save()}
 function norm(s){return String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9\s]/g," ").replace(/\s+/g," ").trim()}
-function lev(a,b){a=norm(a);b=norm(b);if(a===b)return 0;let m=Array(b.length+1).fill(0).map((_,i)=>[i]);for(let i=1;i<=a.length;i++){m[i][0]=i;for(let j=1;j<=b.length;j++)m[i][j]=Math.min(m[i-1][j]+1,m[i][j-1]+1,m[i-1][j-1]+(a[i-1]===b[j-1]?0:1));}return m[a.length][b.length]}
+function lev(a,b){a=norm(a);b=norm(b);const m=Array.from({length:b.length+1},(_,i)=>[i]);for(let i=1;i<=a.length;i++){m[i]=[i];for(let j=1;j<=b.length;j++){m[i][j]=Math.min(m[i-1][j]+1,m[i][j-1]+1,m[i-1][j-1]+(a[i-1]===b[j-1]?0:1))}}return m[a.length][b.length]}
 function approx(input,answer){
   const a=norm(input), b=norm(answer);
   if(!a)return false;
@@ -133,18 +139,31 @@ function unseen(pool,key,n){
   fresh.forEach(x=>state.history[key].push(x.id));save();return fresh
 }
 function showView(name){
+ const view=document.getElementById("view-"+name); if(!view)return;
  document.querySelectorAll(".view").forEach(x=>x.classList.remove("active"));
- document.getElementById("view-"+name).classList.add("active");
+ view.classList.add("active");
  document.querySelectorAll(".nav button").forEach(x=>x.classList.toggle("active",x.dataset.view===name));
+ if(name==="mcq" && document.getElementById("globalMcqArea")) renderGlobalMCQ();
+ if(name==="classes") renderClasses();
+ if(name==="cases") renderCases();
+ if(name==="concepts") renderConcepts();
  window.scrollTo({top:0,behavior:"smooth"});
 }
-document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>showView(b.dataset.view));
-document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>showView(b.dataset.go));
 
 function openModal(html){document.getElementById("modalBody").innerHTML=html;document.getElementById("modal").classList.add("show")}
 function closeModal(){document.getElementById("modal").classList.remove("show")}
 document.getElementById("closeModal").onclick=closeModal;
 document.getElementById("modal").onclick=e=>{if(e.target.id==="modal")closeModal()}
+
+// Event delegation: keeps navigation and dynamically created cards/buttons reliable.
+document.addEventListener("click",e=>{
+ const nav=e.target.closest("[data-view]");
+ if(nav){showView(nav.dataset.view);return}
+ const go=e.target.closest("[data-go]");
+ if(go){showView(go.dataset.go);return}
+ const concept=e.target.closest("[data-concept]");
+ if(concept){openConcept(decodeURIComponent(concept.dataset.concept));return}
+});
 
 function renderClasses(){
  const q=norm(document.getElementById("classSearch").value);
@@ -249,9 +268,32 @@ function renderDefs(pool){
  area.querySelectorAll(".analyze").forEach(b=>b.onclick=()=>{let qel=b.closest(".question"),txt=qel.querySelector("textarea").value||"",term=qel.querySelector("h3").textContent.split(": ").pop();qel.querySelector(".feedback").innerHTML=conceptAnalysis(txt,term);});
 }
 function conceptAnalysis(txt,term){
- let t=norm(txt), aliases={"Constitucionalismo":["limitar poder","constitucion","derechos"],"Poder constituyente originario":["crear","constitucion","nuevo"],"Poder constituyente derivado":["reforma","constitucion","procedimiento"],"Supremacia constitucional":["superior","constitucion","normas"],"Control de constitucionalidad":["compatib","constitucion","juez"],"Interpretación constitucional":["significado","alcance","aplicar"],"Censura previa":["antes","difusion","impedir"],"Responsabilidad ulterior":["despues","consecuencia","expresion"],"Derecho de réplica":["responder","aclarar","medio"],"Actual malice":["falsedad","conocimiento","reckless"]};
- let hits=[];for(let k of Object.keys(aliases))if(aliases[k].some(x=>t.includes(norm(x))))hits.push(k);
- return hits.length?`🟢 Detecto ideas relacionadas: <b>${hits.join(", ")}</b>. Recordá que la respuesta debe estar formulada con precisión.`:`🟡 No detecté suficientes palabras clave todavía. Probá explicar <b>${term}</b> con definición + función + diferencia frente a conceptos cercanos.`
+ const t=norm(txt);
+ const aliases={
+  "Constitucionalismo":["limitar poder","constitucion","derechos"],
+  "Poder constituyente originario":["crear","constitucion","nuevo"],
+  "Poder constituyente derivado":["reforma","constitucion","procedimiento"],
+  "Supremacia constitucional":["superior","constitucion","normas"],
+  "Control de constitucionalidad":["compatibilidad","constitucion","juez"],
+  "Interpretacion constitucional":["significado","alcance","aplicar"],
+  "Censura previa":["antes","difusion","impedir"],
+  "Responsabilidad ulterior":["despues","consecuencia","expresion"],
+  "Derecho de replica":["responder","aclarar","medio"],
+  "Actual malice":["falsedad","conocimiento","reckless"]
+ };
+ function fuzzyWord(needle,text){
+   needle=norm(needle);
+   if(!needle)return false;
+   if(text.includes(needle))return true;
+   const words=text.split(" ");
+   for(const w of words){if(w.length<4)continue; if(lev(w,needle)<=Math.max(1,Math.floor(Math.max(w.length,needle.length)*.28)))return true;}
+   return false;
+ }
+ let hits=[];
+ for(const k of Object.keys(aliases)){
+   if(aliases[k].some(x=>x.includes(" ") ? fuzzyWord(x,t) : fuzzyWord(x,t))) hits.push(k);
+ }
+ return hits.length?`🟢 Detecto estas ideas aunque haya pequeños errores de escritura: <b>${hits.join(", ")}</b>. Ahora asegurate de explicar el concepto con precisión y relacionarlo con la consigna.`:`🟡 No detecté todavía suficientes ideas clave. Probá escribir una definición + función + diferencia frente a un concepto cercano.`;
 }
 function renderMatch(pool){
  const area=document.getElementById("classArea"),right=shuffle(pool.map((x,i)=>({...x,i})));
@@ -284,8 +326,37 @@ function renderCases(){
 }
 document.getElementById("caseSearch").oninput=renderCases;
 document.addEventListener("click",e=>{let b=e.target.closest(".case-open");if(b){let c=Object.values(DATA.cases).flat().find(x=>x.name===decodeURIComponent(b.dataset.name));openModal(`<h2>${c.name}</h2><p><b>Qué pasó:</b> ${c.what}</p><p><b>Concepto principal:</b> ${c.concept}</p><h3>Clave para reconocerlo</h3><p>Identificá el derecho en conflicto, el tipo de intervención y el problema jurídico. En un parcial, no alcanza con nombrar el caso: explicá la conexión.</p>`)}});
+const conceptDetails={
+ "Constitución":{"def":"Norma fundamental que organiza el Estado, limita el poder y reconoce derechos.","class":1,"rel":"Es el punto de partida del constitucionalismo."},
+ "Constitucionalismo":{"def":"Corriente/idea orientada a limitar el poder estatal mediante una Constitución y proteger derechos.","class":1,"rel":"Se estudia junto con constitucionalismo clásico y social."},
+ "Poder constituyente":{"def":"Poder que crea o reforma la Constitución.","class":1,"rel":"Puede ser originario o derivado; se diferencia de los poderes constituidos."},
+ "Poderes constituidos":{"def":"Órganos creados por la Constitución, como los poderes Ejecutivo, Legislativo y Judicial.","class":1,"rel":"No son quienes crean libremente la Constitución."},
+ "Constitución rígida":{"def":"Constitución cuya reforma requiere un procedimiento especial, más complejo que el de una ley ordinaria.","class":1,"rel":"No significa que sea imposible reformarla."},
+ "Constitucionalismo social":{"def":"Etapa que reconoce derechos sociales y una función estatal más activa, además de las libertades clásicas.","class":1,"rel":"Se diferencia del constitucionalismo clásico por el papel estatal más activo."},
+ "Atenuación del presidencialismo":{"def":"Objetivo de la reforma de 1994: reducir la concentración presidencial sin transformar a Argentina en un sistema parlamentario.","class":3,"rel":"Argentina siguió siendo presidencialista."},
+ "Presidencialismo":{"def":"Sistema en el que el Presidente encabeza el Poder Ejecutivo y tiene un mandato propio.","class":3,"rel":"Se contrasta con el parlamentarismo."},
+ "Parlamentarismo":{"def":"Sistema en el que el gobierno depende políticamente de la confianza del Parlamento; suele distinguirse jefe de Estado y jefe de Gobierno.","class":3,"rel":"No es el sistema argentino después de 1994."},
+ "Supremacía constitucional":{"def":"La Constitución ocupa una posición superior dentro del ordenamiento jurídico.","class":5,"rel":"Art. 31. Explica por qué una norma inferior no debería prevalecer frente a la Constitución."},
+ "Control de constitucionalidad":{"def":"Verificación de si una norma o acto es compatible con la Constitución.","class":6,"rel":"Marbury, Sojo y Elortondo; se diferencia de interpretar el significado de una cláusula."},
+ "Interpretación constitucional":{"def":"Determinación del significado, alcance y aplicación de una norma constitucional.","class":8,"rel":"Brown y Saguir y Dib se estudian dentro de este eje."},
+ "Originalismo":{"def":"Enfoque que da especial importancia al significado original de la Constitución al momento de su adopción.","class":9,"rel":"Se contrasta con la Constitución viviente."},
+ "Constitución viviente":{"def":"Enfoque que considera cambios sociales y circunstancias actuales al aplicar principios constitucionales.","class":9,"rel":"No equivale a que un juez pueda inventar arbitrariamente cualquier derecho."},
+ "Libertad de expresión":{"def":"Protege expresar, comunicar y difundir ideas e información; tiene dimensión individual y social.","class":10,"rel":"Es el derecho central de las Clases 10–13."},
+ "Censura previa":{"def":"Intervención que intenta impedir una expresión antes de su difusión.","class":10,"rel":"Servini de Cubría y Olmedo Bustos son referencias centrales."},
+ "Responsabilidad ulterior":{"def":"Posibles consecuencias jurídicas que aparecen después de que una expresión fue realizada o publicada.","class":12,"rel":"Se distingue temporalmente de la censura previa."},
+ "Efecto silenciador":{"def":"Autocensura generada por el temor a sanciones, demandas u otras consecuencias.","class":13,"rel":"Puede existir sin una prohibición directa."},
+ "Derecho de réplica":{"def":"Derecho a responder o aclarar determinadas informaciones difundidas sobre una persona, bajo condiciones, requisitos y límites.","class":13,"rel":"Ekmekdjian c. Sofovich y Petric."},
+ "Honor":{"def":"Interés protegido frente a afectaciones ilegítimas a la reputación o consideración de una persona.","class":12,"rel":"Aparece especialmente en Campillay, Sullivan y Patitó."},
+ "Privacidad":{"def":"Protección frente a intromisiones ilegítimas en aspectos privados de una persona.","class":11,"rel":"Ponzetti y S., V. C. c/M., D.A."},
+ "Actual malice":{"def":"Estándar trabajado en New York Times v. Sullivan: conocimiento de la falsedad o reckless disregard respecto de la verdad/falsedad en el supuesto estudiado.","class":12,"rel":"Se vincula con publicaciones sobre funcionarios públicos."}
+};
 function renderConcepts(){
- const all=[];DATA.classes.forEach(c=>c.facts.forEach(f=>all.push(f.a)));document.getElementById("conceptGrid").innerHTML=[...new Set(all)].map(x=>`<div class="classcard"><div class="tag">CONCEPTO</div><h3>${x}</h3><p>Buscalo en su clase y practicá las categorías específicas.</p></div>`).join("");
+ const keys=Object.keys(conceptDetails);
+ document.getElementById("conceptGrid").innerHTML=keys.map(x=>{const d=conceptDetails[x];return `<button class="concept-btn" data-concept="${encodeURIComponent(x)}" onclick="openConcept(decodeURIComponent(this.dataset.concept))"><div class="classcard"><div class="tag">CLASE ${d.class} · CONCEPTO</div><h3>${x}</h3><p>${d.def}</p><p><b>Ver más →</b></p></div></button>`}).join("");
+}
+function openConcept(term){
+ const d=conceptDetails[term]; if(!d)return; const c=DATA.classes.find(x=>x.id===d.class);
+ openModal(`<h2>${term}</h2><p>${d.def}</p><h3>📚 Clase ${d.class}</h3><p>${c?c.summary:""}</p><h3>🔎 Relación clave</h3><p>${d.rel}</p><div class="actions"><button class="btn primary" onclick="closeModal();openClass(${d.class})">Practicar Clase ${d.class} →</button></div>`);
 }
 function renderHistory(){document.getElementById("historyGrid").innerHTML=DATA.history.map(x=>`<div class="h"><b>${x[0]}</b><strong>${x[1]}</strong><p class="muted">${x[2]}</p></div>`).join("")}
 
@@ -294,16 +365,21 @@ function buildGlobalMCQ(){
  return pool;
 }
 function renderGlobalMCQ(){
- const pool=buildGlobalMCQ();
- let target="globalMcqArea";document.getElementById(target).innerHTML="";
- renderMCQ(pool,"global-"+state.globalMode,target,12);
+ const box=document.getElementById("globalStartBox"),area=document.getElementById("globalMcqArea");
+ box.style.display="block";area.style.display="none";area.innerHTML="";
 }
+function startGlobalMCQ(){
+ const pool=state.globalMode==="mixed"?buildGlobalMCQ():classPool(+state.globalMode);
+ const area=document.getElementById("globalMcqArea"),box=document.getElementById("globalStartBox");
+ box.style.display="none";area.style.display="block";area.innerHTML="";
+ renderMCQ(pool,`global-${state.globalMode}`,"globalMcqArea",12);
+}
+function chooseGlobalMode(k){state.globalMode=k;renderGlobalModes();startGlobalMCQ()}
 function renderGlobalModes(){
  const modes=[["mixed","🌐 Mezclado"],["1","Clase 1"],["2","Clase 2"],["3","Clase 3"],["4","Clase 4"],["5","Clase 5"],["6","Clase 6"],["7","Clase 7"],["8","Clase 8"],["9","Clase 9"],["10","Clase 10"],["11","Clase 11"],["12","Clase 12"],["13","Clase 13"]];
- document.getElementById("globalModes").innerHTML=modes.map(([k,l])=>`<button class="${state.globalMode===k?"active":""}" data-gmode="${k}">${l}</button>`).join("");
- document.querySelectorAll("[data-gmode]").forEach(b=>b.onclick=()=>{state.globalMode=b.dataset.gmode;renderGlobalModes();let pool=state.globalMode==="mixed"?buildGlobalMCQ():classPool(+state.globalMode);document.getElementById("globalMcqArea").innerHTML="";renderMCQ(pool,`global-${state.globalMode}`, "globalMcqArea",12)});
+ document.getElementById("globalModes").innerHTML=modes.map(([k,l])=>`<button onclick="chooseGlobalMode('${k}')" class="${state.globalMode===k?"active":""}" data-gmode="${k}">${l}</button>`).join("");
 }
-document.getElementById("newGlobalMCQ").onclick=()=>{let pool=state.globalMode==="mixed"?buildGlobalMCQ():classPool(+state.globalMode);document.getElementById("globalMcqArea").innerHTML="";renderMCQ(pool,`global-${state.globalMode}`, "globalMcqArea",12)};
+function bindGlobalMCQ(){}
 
 const flashcards=[];
 DATA.classes.forEach(c=>c.facts.forEach(f=>flashcards.push([`Clase ${c.id} · ${f.a}`,`Respuesta clave: ${f.a}. ${f.exp||""}`])));
@@ -330,10 +406,10 @@ function startSim(){
 function qHTML(n,q){let opts=shuffle([q.a,...q.d]);return `<div class="q question" data-correct="${encodeURIComponent(q.a)}"><h3>${n}. ${q.q}</h3><div class="opts">${opts.map(o=>`<button data-o="${encodeURIComponent(o)}">${String.fromCharCode(65+opts.indexOf(o))}) ${o}</button>`).join("")}</div><div class="feedback"></div></div>`}
 function tfHTML(n,q){return `<div class="q question" data-tf="${q.a}"><h3>${n}. ${q.q}</h3><div class="opts"><button data-v="1">Verdadero</button><button data-v="0">Falso</button></div><div class="feedback"></div></div>`}
 function bindSimMCQ(sim,m){sim.querySelectorAll("[data-correct]").forEach(qel=>{qel.querySelectorAll(".opts button").forEach(b=>b.onclick=()=>{let opts=qel.querySelector(".opts");if([...opts.children].some(x=>x.classList.contains("correct")||x.classList.contains("wrong")))return;let ok=norm(decodeURIComponent(b.dataset.o))===norm(decodeURIComponent(qel.dataset.correct));b.classList.add(ok?"correct":"wrong");if(!ok)[...opts.children].find(x=>norm(decodeURIComponent(x.dataset.o))===norm(decodeURIComponent(qel.dataset.correct)))?.classList.add("correct");qel.querySelector(".feedback").textContent=ok?"✅ Correcto.":"❌ Incorrecto.";count(ok)})})}
-function bindSimTF(sim,t){sim.querySelectorAll("[data-tf]").forEach(qel=>qel.querySelectorAll(".opts button").forEach(b=>b.onclick=()=>{let opts=qel.querySelector(".opts");if([...opts.children].some(x=>x.classList.contains("correct")||x.classList.contains("wrong")))return;let val=b.dataset.v==="1",ok=val===String(qel.dataset.tf)==="true";b.classList.add(ok?"correct":"wrong");if(!ok)opts.children[String(qel.dataset.tf)==="true"?0:1].classList.add("correct");qel.querySelector(".feedback").textContent=ok?"✅ Correcto.":"❌ Incorrecto.";count(ok)}))}
+function bindSimTF(sim,t){sim.querySelectorAll("[data-tf]").forEach(qel=>qel.querySelectorAll(".opts button").forEach(b=>b.onclick=()=>{let opts=qel.querySelector(".opts");if([...opts.children].some(x=>x.classList.contains("correct")||x.classList.contains("wrong")))return;let expected=String(qel.dataset.tf)==="true",val=b.dataset.v==="1",ok=val===expected;b.classList.add(ok?"correct":"wrong");if(!ok)opts.children[expected?0:1].classList.add("correct");qel.querySelector(".feedback").textContent=ok?"✅ Correcto.":"❌ Incorrecto.";count(ok)}))}
 document.getElementById("startSim").onclick=startSim;
 
-renderClasses();renderCases();renderConcepts();renderHistory();renderGlobalModes();renderGlobalMCQ();drawFlash();updateStats();
+renderClasses();renderCases();renderConcepts();renderHistory();renderGlobalModes();renderGlobalMCQ();bindGlobalMCQ();drawFlash();updateStats();
 </script>
 </body>
 </html>
