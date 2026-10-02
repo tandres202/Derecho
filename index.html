@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Parcial Derecho 8/10 · UdeSA</title>
+<title>Parcial Derecho 8/10</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c3447'/%3E%3Cpath fill='%23d6b86a' d='M30 10h4v7h-4zM15 19h34v5H15zM20 25h24v19H20zM15 44h34v5H15zM26 29h4v11h-4zM34 29h4v11h-4z'/%3E%3Cpath fill='none' stroke='%23d6b86a' stroke-width='3' d='M11 14h42M8 14l8 11M56 14l-8 11'/%3E%3C/svg%3E">
 <style>
 :root{--nav:#183043;--nav2:#10232f;--paper:#f5efe2;--paper2:#fffaf0;--ink:#202b34;--muted:#68737a;--gold:#b79554;--red:#8c3e35;--blue:#355f7c;--green:#3b7b64;--line:#d8c8aa;--shadow:0 12px 30px rgba(50,39,22,.11)}
@@ -28,6 +28,9 @@
 @media(max-width:1150px){.classgrid{grid-template-columns:repeat(3,1fr)}.grid4{grid-template-columns:repeat(2,1fr)}.casegrid{grid-template-columns:repeat(2,1fr)}.history,.timeline{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:850px){.sidebar{width:72px;padding:8px}.brand h1,.brand small,.side,.label{display:none}.nav button{text-align:center;padding:10px 4px}.main{margin-left:72px;width:calc(100% - 72px);padding:12px}.twocol{grid-template-columns:1fr}}
 @media(max-width:600px){.classgrid,.casegrid,.grid4,.history,.timeline{grid-template-columns:1fr}.hero{padding:26px}.hero h2{font-size:43px}.panel{padding:14px}}
+
+.flow-proc{display:flex;flex-wrap:wrap;align-items:center;gap:9px}.flow-proc>div{background:#f1e5d3;border:1px solid #d0bc9a;border-radius:10px;padding:14px;min-width:145px;text-align:center;font-weight:850}.flow-proc>span{font-size:24px;color:#8b4037}.flow-proc small{font-weight:500;color:#6b757b}.callout-proc{margin-top:14px;padding:14px;border-left:4px solid #b49457;background:#eee3d2;border-radius:0 10px 10px 0;line-height:1.55}.proc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.proc-grid>div{background:#f1e6d5;border:1px solid #d6c3a4;border-radius:10px;padding:14px}.proc-grid b{display:block;color:#8b4037;font-size:18px}.steps-proc{display:grid;gap:8px}.steps-proc>div{display:grid;grid-template-columns:185px 1fr;gap:15px;padding:12px;background:#f7efe2;border:1px solid #ddcbb0;border-radius:9px}.steps-proc span{color:#66737a}.formula-proc{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px}.formula-proc>div{min-width:155px;text-align:center;background:#f1e5d3;border:1px solid #d0bc9a;border-radius:10px;padding:14px}.formula-proc b{display:block;font:700 26px Georgia,serif;color:#8b4037}.formula-proc small{color:#5f6a70}.formula-proc>span{font-size:24px;color:#8b4037}.casefull p{line-height:1.55}.mcq-source{display:inline-block;font-size:11px;color:#294f69;background:#e9dfcf;border:1px solid #d4c19f;border-radius:999px;padding:5px 8px;margin-bottom:10px;font-weight:850}.question-progress{font-size:12px;color:#6b7479;margin-bottom:5px}
+@media(max-width:900px){.proc-grid{grid-template-columns:1fr 1fr}.steps-proc>div{grid-template-columns:1fr}}@media(max-width:600px){.proc-grid{grid-template-columns:1fr}.flow-proc>div{min-width:100%}.flow-proc>span{width:100%;text-align:center;transform:rotate(90deg)}}
 </style>
 </head>
 <body>
@@ -44,6 +47,8 @@
   <button data-view="flash"><span class="n">🃏</span><span class="label">Flashcards</span></button>
   <button data-view="sim"><span class="n">🏆</span><span class="label">Simulacro</span></button>
   <button data-view="presentations"><span class="n">📖</span><span class="label">Presentaciones</span></button>
+    <button data-view="process"><span class="n">🏹</span><span class="label">Proceso judicial</span></button>
+    <button data-view="sentences"><span class="n">🔎</span><span class="label">Analizar sentencia</span></button>
  </nav>
  <div class="side"><small>Precisión total</small><div class="pct" id="pct">0%</div><div class="bar"><i id="bar"></i></div><small id="stat">0 respuestas</small></div>
 </aside>
@@ -133,6 +138,37 @@
 
 <section class="view" id="view-sim">
  <div class="panel"><div class="head"><div><h2>🏆 Simulacro</h2><p>Mezcla de Clases 1–13. Las preguntas automáticas se corrigen; los desarrollos requieren corrección manual.</p></div><button class="btn gold" id="startSim">🚀 Nuevo simulacro</button></div><div class="scorebox"><b>Modo parcial:</b> sin apuntes. Hay MCQ, completar, V/F, casos y desarrollos.</div><div id="simArea"></div></div>
+</section>
+
+<section class="view" id="view-process">
+ <div class="panel"><div class="head"><div><h2>🏹 Cómo avanza una causa</h2><p>Memorizá el recorrido de una causa paso a paso.</p></div></div>
+   <h3>Ámbito federal</h3>
+   <div class="flow-proc"><div>📄 Demanda</div><span>→</span><div>⚖️ Juzgado Federal<br><small>1ª instancia</small></div><span>→</span><div>🏛️ Cámara Federal<br><small>2ª instancia</small></div><span>→</span><div>⚖️ Corte Suprema<br><small>si corresponde la vía extraordinaria</small></div></div>
+   <div class="callout-proc"><b>Importante:</b> la Corte Suprema no funciona como una tercera instancia automática. El material de la presentación define al recurso extraordinario federal como una <b>apelación excepcional en un caso federal</b>.</div>
+   <h3>Ámbito nacional / provincial</h3>
+   <div class="flow-proc"><div>📄 Demanda</div><span>→</span><div>⚖️ Juzgado<br><small>1ª instancia</small></div><span>→</span><div>🏛️ Cámara<br><small>2ª instancia</small></div><span>→</span><div>🏛️ Tribunal superior correspondiente</div></div>
+   <div class="callout-proc"><b>No mezcles recorridos:</b> en el ámbito federal la segunda instancia es la Cámara Federal; en una causa nacional/provincial interviene el tribunal correspondiente a ese sistema.</div>
+ </div>
+ <div class="panel"><div class="head"><div><h2>⚖️ ¿Cómo llega una causa a la Corte Suprema?</h2><p>Checklist de los requisitos propios enumerados en la presentación.</p></div></div>
+  <div class="proc-grid"><div><b>1.</b><span>Intervención judicial previa</span></div><div><b>2.</b><span>Cuestión federal</span></div><div><b>3.</b><span>Relación directa e inmediata</span></div><div><b>4.</b><span>Resolución contraria al derecho federal</span></div><div><b>5.</b><span>Sentencia definitiva</span></div><div><b>6.</b><span>Tribunal superior de la causa</span></div></div>
+  <p class="muted">Además, el material distingue requisitos comunes y requiere un caso federal. No alcanza con que una parte simplemente no esté de acuerdo con una sentencia.</p>
+ </div>
+</section>
+<section class="view" id="view-sentences">
+ <div class="panel"><div class="head"><div><h2>🔎 Cómo analizar una sentencia</h2><p>Orden de lectura para cualquier caso.</p></div></div>
+  <div class="steps-proc">
+   <div><b>1 · Carátula</b><span>Partes + objeto del juicio.</span></div>
+   <div><b>2 · Hechos</b><span>Qué ocurrió y cuál es la situación que origina el conflicto.</span></div>
+   <div><b>3 · Antecedentes</b><span>Qué resolvieron los tribunales anteriores.</span></div>
+   <div><b>4 · Problema constitucional</b><span>Derechos/principios/garantías + autoridad + actuación + persona + pretensión.</span></div>
+   <div><b>5 · Holding / regla</b><span>Respuesta afirmativa o negativa al problema.</span></div>
+   <div><b>6 · Decisión + razones</b><span>Qué decide la Corte y por qué.</span></div>
+   <div><b>7 · Votos, disidencias y obiter</b><span>Cómo votaron los jueces y qué argumentos fueron dichos de paso.</span></div>
+  </div>
+ </div>
+ <div class="panel"><div class="head"><div><h2>🧭 Problema constitucional · A-X-D-persona</h2><p>Una fórmula de la presentación para ordenar el problema.</p></div></div>
+  <div class="formula-proc"><div><b>A</b><small>Autoridad demandada</small></div><span>+</span><div><b>X</b><small>Actuación de la autoridad</small></div><span>+</span><div><b>D</b><small>Derecho fundamental</small></div><span>+</span><div><b>👤</b><small>Persona afectada</small></div></div>
+ </div>
 </section>
 <section class="view" id="view-presentations">
  <div class="panel">
@@ -645,6 +681,102 @@ document.querySelectorAll("[data-pmode]").forEach(b=>b.onclick=()=>{document.que
 
 renderClasses();renderCases();renderConcepts();renderHistory();renderGlobalModes();renderGlobalMCQ();setFlashFilter("all");updateStats();
 renderPresentations('overview');
+</script>
+
+<script>
+/* v11 enhancements: clearer MCQ, richer case fichas, process-to-Supreme-Court block, expanded concepts. */
+(function(){
+ const richExtras={
+  "Funciones de la Constitución":{"def":"Según la presentación: brindar el catálogo de principios, derechos y garantías; organizar el ejercicio del poder; y ser la norma productora de normas.","class":1,"rel":"Presentación 1 · Introducción"},
+  "Derecho":{"def":"Facultad que le reconoce un Estado a una persona.","class":1,"rel":"Presentación 1 · Introducción"},
+  "Principio":{"def":"Regla que orienta la creación, aplicación e interpretación de los derechos y el funcionamiento del sistema normativo.","class":1,"rel":"Presentación 1 · Introducción"},
+  "Garantías":{"def":"Mecanismos o herramientas de protección de los derechos.","class":1,"rel":"Presentación 1 · Introducción"},
+  "Competencia originaria":{"def":"Competencia de la Corte Suprema que el material caracteriza como no ampliable ni restringible por ley.","class":null,"rel":"Presentación 1 · Poder Judicial"},
+  "Recurso extraordinario federal":{"def":"Apelación excepcional en un caso federal. El material distingue requisitos comunes y requisitos propios.","class":null,"rel":"Presentación 1 · Poder Judicial"},
+  "Cuestión federal":{"def":"Uno de los requisitos propios enumerados para la procedencia del recurso extraordinario federal.","class":null,"rel":"Presentación 1 · Recurso extraordinario"},
+  "Relación directa e inmediata":{"def":"El material exige esta relación entre la cuestión federal y la solución del juicio.","class":null,"rel":"Presentación 1 · Recurso extraordinario"},
+  "Sentencia definitiva":{"def":"Uno de los requisitos propios enumerados en la presentación para el recurso extraordinario federal.","class":null,"rel":"Presentación 1 · Recurso extraordinario"},
+  "Tribunal superior de la causa":{"def":"Requisito propio enumerado en la presentación para el recurso extraordinario federal.","class":null,"rel":"Presentación 1 · Recurso extraordinario"},
+  "Primera instancia":{"def":"Primer tribunal en el que comienza a tramitar una causa.","class":null,"rel":"Presentación 1 · Trámite judicial"},
+  "Segunda instancia":{"def":"Instancia de revisión mediante apelación; en el ámbito federal, el material ubica allí a la Cámara Federal.","class":null,"rel":"Presentación 1 · Trámite judicial"},
+  "Apelación":{"def":"Solicitud de revisión de una sentencia desfavorable ante un tribunal superior.","class":null,"rel":"Presentación 1 · Trámite judicial"},
+  "Holding / regla del caso":{"def":"Respuesta afirmativa o negativa al problema identificado; el material la vincula con la decisión de la Corte.","class":null,"rel":"Presentación 1 · Análisis de sentencias"},
+  "Razones de la regla":{"def":"Argumentos que justifican la respuesta dada al problema planteado.","class":null,"rel":"Presentación 1 · Análisis de sentencias"},
+  "Voto":{"def":"Argumentación de un integrante de la Corte que puede sostener una misma decisión con fundamentos propios.","class":null,"rel":"Presentación 1 · Análisis de sentencias"},
+  "Disidencia":{"def":"Voto que no comparte la conclusión de la mayoría.","class":null,"rel":"Presentación 1 · Análisis de sentencias"},
+  "Obiter dictum":{"def":"Argumento o comentario sin relevancia sustancial para resolver el conflicto, dicho de paso.","class":null,"rel":"Presentación 1 · Análisis de sentencias"},
+  "Pretensión":{"def":"Resultado que una parte busca obtener en el juicio.","class":null,"rel":"Presentación 1 · Análisis de sentencias"},
+  "Problema constitucional A-X-D-persona":{"def":"Forma de estructurar el problema: autoridad demandada, actuación de la autoridad, derecho fundamental involucrado y persona afectada.","class":null,"rel":"Presentación 1 · Análisis de sentencias"},
+  "Hábeas corpus":{"def":"Garantía constitucional destinada a proteger la libertad física en los supuestos previstos constitucionalmente.","class":null,"rel":"Complementario · art. 43"},
+  "Hábeas data":{"def":"Garantía constitucional vinculada con el conocimiento y control de determinados datos personales, en los supuestos previstos por el art. 43.","class":null,"rel":"Complementario · art. 43"},
+  "Acción de amparo":{"def":"Vía judicial rápida para la tutela de derechos en los supuestos previstos por el art. 43.","class":null,"rel":"Complementario · art. 43"},
+  "Defensa en juicio":{"def":"Garantía vinculada con la posibilidad de ejercer adecuadamente la defensa dentro de un proceso.","class":null,"rel":"Complementario"},
+  "Juez natural":{"def":"Garantía vinculada con la intervención del juez competente establecido previamente por las reglas jurídicas aplicables.","class":null,"rel":"Complementario"},
+  "Fayt":{"def":"Fallo sobre los límites de la habilitación de la Convención reformadora de 1994 respecto de una modificación sustancial vinculada con la inamovilidad de jueces federales al alcanzar determinada edad.","class":3,"rel":"Presentación 2 · Reforma constitucional"},
+  "Schiffrin":{"def":"Fallo que, según la presentación, adopta un estándar más deferente hacia la Convención Constituyente, respeta su legitimidad y señala que la doctrina Fayt debía ser abandonada.","class":3,"rel":"Presentación 2 · Reforma constitucional"},
+  "Poder pre-constituyente del Congreso":{"def":"Función que la presentación atribuye al Congreso al declarar la necesidad de reforma y determinar el ámbito habilitado para la Convención.","class":3,"rel":"Presentación 2 · Reforma constitucional"}
+ };
+ Object.assign(window.conceptDetails||{},richExtras);
+ if(window.PRESENT_DATA){PRESENT_DATA.concepts=Object.assign(PRESENT_DATA.concepts||{},richExtras);}
+
+ // Rich cases: these replace the shorter versions in v10.
+ DATA.cases={
+  "6":[{name:"Marbury v. Madison",class:6,concept:"Control de constitucionalidad",what:"Caso estadounidense asociado al origen del control judicial de constitucionalidad. En el curso sirve para estudiar la relación entre supremacía constitucional y la posibilidad de que los jueces controlen la compatibilidad de una norma con la Constitución.",conflict:"El problema es cómo se relaciona una norma/decisión inferior con una Constitución que se considera superior y qué papel tiene el juez ante esa incompatibilidad.",key:"Control judicial de constitucionalidad."}],
+  "7":[{name:"Sojo",class:7,concept:"Control de constitucionalidad",what:"Caso argentino temprano que se estudia como antecedente del control judicial de constitucionalidad.",conflict:"Qué puede hacer un juez cuando entiende que una norma o acto no es compatible con la Constitución.",key:"Control de constitucionalidad en Argentina."},{name:"Municipalidad de la Capital c. Elortondo",class:7,concept:"Control de constitucionalidad · legitimidad judicial",what:"Caso argentino estudiado junto con Sojo para analizar el ejercicio judicial del control de constitucionalidad y la posición de los jueces frente a normas inferiores.",conflict:"Compatibilidad de una norma con la Constitución y debate sobre la legitimidad democrática del control judicial.",key:"Control de constitucionalidad y legitimidad judicial."}],
+  "8":[{name:"Brown v. Board of Education",class:8,concept:"Interpretación constitucional",what:"Caso sobre segregación racial en escuelas públicas de Estados Unidos. En el curso se utiliza para trabajar cómo interpretar y aplicar la Constitución frente a una situación concreta de igualdad.",conflict:"Cómo debe entenderse y aplicarse el principio constitucional de igualdad ante la segregación escolar.",key:"Interpretación constitucional."}],
+  "9":[{name:"Saguir y Dib",class:9,concept:"Interpretación constitucional",what:"Caso de la Corte Suprema utilizado para trabajar problemas de interpretación y aplicación de derechos constitucionales ante un caso concreto.",conflict:"Qué alcance debe darse a una norma constitucional cuando debe aplicarse a una situación concreta.",key:"Interpretación constitucional."}],
+  "11":[{name:"Servini de Cubría",class:11,concept:"Libertad de expresión · censura previa",what:"María Romilda Servini de Cubría pidió que no se emitiera un segmento del programa humorístico de Tato Bores que la involucraba. La medida buscaba impedir la difusión antes de que el contenido saliera al aire.",conflict:"Libertad de expresión frente a una intervención que intenta impedir previamente una emisión.",key:"Censura previa."},{name:"S., V. C. c/M., D.A.",class:11,concept:"Privacidad · libertad de prensa",what:"El caso involucraba cobertura periodística de un conflicto de filiación en el que aparecía información referida a una menor. El problema se estudia desde la tensión entre la privacidad de la menor y la libertad de prensa.",conflict:"Privacidad de una menor frente al interés periodístico y la libertad de prensa.",key:"Privacidad y libertad de prensa."},{name:"Olmedo Bustos y otros c. Chile",class:11,concept:"Libertad de expresión · censura previa",what:"La Corte Interamericana analizó la prohibición en Chile de la película La Última Tentación de Cristo. La prohibición se estudia como una intervención previa sobre la circulación de una obra audiovisual.",conflict:"Libertad de pensamiento y expresión frente a la prohibición previa de una película.",key:"Censura previa."},{name:"Editorial Río Negro S.A. c. Neuquén",class:11,concept:"Publicidad oficial · libertad de prensa",what:"El caso se refiere al retiro de publicidad oficial de un diario crítico del gobierno de Neuquén. Su importancia está en que una autoridad puede afectar la libertad de prensa mediante una medida indirecta, aun sin ordenar que el diario deje de publicar.",conflict:"Libertad de prensa frente a una medida estatal vinculada con la asignación de publicidad oficial.",key:"Publicidad oficial y afectación indirecta de la libertad de prensa."}],
+  "12":[{name:"Ponzetti de Balbín",class:12,concept:"Privacidad · libertad de prensa",what:"Se publicó una fotografía de Ricardo Balbín internado en terapia intensiva sin autorización. El caso enfrenta la protección de la vida privada con la libertad de prensa.",conflict:"Privacidad frente al interés periodístico en publicar una imagen tomada en un ámbito especialmente privado.",key:"Privacidad."},{name:"Campillay",class:12,concept:"Honor · forma de informar",what:"El caso trata sobre información difundida por medios que podía perjudicar el honor de una persona. La doctrina se ocupa de cómo presentar determinada información para evitar una afectación ilegítima.",conflict:"Honor frente a libertad de prensa, con foco en la forma de presentar una acusación o información potencialmente dañosa.",key:"Doctrina Campillay."},{name:"New York Times v. Sullivan",class:12,concept:"Actual malice · funcionario público",what:"Caso de la Corte Suprema de Estados Unidos referido a publicaciones sobre un funcionario público. Se estudia el estándar de actual malice para determinados reclamos por afirmaciones falsas relacionadas con conducta oficial.",conflict:"Libertad de prensa frente a reclamos por afirmaciones falsas relacionadas con funcionarios públicos.",key:"Actual malice."},{name:"Patitó",class:12,concept:"Crítica · honor · libertad de expresión",what:"Caso sobre críticas periodísticas vinculadas con integrantes del Poder Judicial. Se trabaja la tensión entre protección del honor y libertad de expresión, especialmente al discutir asuntos de interés público.",conflict:"Honor frente a la protección de la crítica periodística sobre asuntos de interés público.",key:"Crítica pública y libertad de expresión."}],
+  "13":[{name:"Ekmekdjian c. Sofovich",class:13,concept:"Derecho de réplica",what:"Después de expresiones difundidas en un programa de televisión que consideró ofensivas para sus convicciones religiosas, Ekmekdjian pidió responder en el mismo medio. El caso es central para estudiar el reconocimiento del derecho de réplica bajo determinadas condiciones.",conflict:"Libertad de expresión del medio frente a la pretensión de la persona afectada de responder en el mismo medio.",key:"Derecho de réplica."},{name:"Petric",class:13,concept:"Derecho de réplica · límites",what:"Caso posterior utilizado para profundizar el alcance, los requisitos y los límites del derecho de réplica.",conflict:"Cómo delimitar el derecho de réplica para que opere bajo sus condiciones y no como una facultad ilimitada de publicación.",key:"Alcance y límites del derecho de réplica."}],
+  "3":[{name:"Fayt",class:3,concept:"Reforma constitucional · límites de la Convención",what:"La reforma de 1994 incorporó al art. 99 inc. 4 un párrafo sobre la inamovilidad de los jueces federales al alcanzar determinada edad. Según la presentación, la Corte entendió que la modificación era sustancial y que la habilitación dada por el Congreso no alcanzaba suficientemente para que la Convención la incorporara.",conflict:"Hasta dónde llega la habilitación del Congreso y qué puede modificar la Convención como poder constituyente derivado.",key:"Control de los límites de la Convención reformadora · criterio restrictivo de Fayt."},{name:"Schiffrin, Leopoldo Héctor c/ Poder Ejecutivo Nacional",class:3,concept:"Reforma constitucional · estándar deferente",what:"Según la presentación, el Congreso ejerce función pre-constituyente y la Convención actúa como poder constituyente derivado. El Poder Judicial debe respetar la legitimidad de la Convención y, ante dudas, interpretar a favor de la plenitud de sus poderes.",conflict:"Cómo controlar judicialmente a una Convención sin desconocer su legitimidad. El material indica que la doctrina Fayt debía ser abandonada y sustituida por un estándar deferente.",key:"Estándar de control deferente; abandono de la doctrina Fayt según el material."}]
+ };
+
+ // Clearer global MCQ. Use many stems, one at a time, and same-class distractors.
+ function buildClearMCQ(mode){
+  let pool=[];
+  if(mode==="mixed") DATA.classes.forEach(c=>c.facts.forEach((f,fi)=>f.stems.forEach((stem,si)=>pool.push({id:`mc-${c.id}-${fi}-${si}`,source:`Clase ${c.id}`,q:stem,a:f.a,d:f.d}))));
+  else {const c=DATA.classes.find(x=>x.id===+mode);if(c)c.facts.forEach((f,fi)=>f.stems.forEach((stem,si)=>pool.push({id:`mc-${c.id}-${fi}-${si}`,source:`Clase ${c.id}`,q:stem,a:f.a,d:f.d})));}
+  if(mode==="mixed" && PRESENT_DATA?.mcq) PRESENT_DATA.mcq.forEach((x,i)=>pool.push({id:`pm-${i}`,source:"Presentaciones",q:x[0],a:x[1],d:x[2]}));
+  return pool;
+ }
+ function clearOptions(q,pool){
+  const choices=[];const target=norm(q.a);const candidates=[];
+  // Prefer distractors from the same class or nearby topics, not absurd unrelated ones.
+  const cls=DATA.classes.find(c=>q.source===`Clase ${c.id}`);
+  if(cls){cls.facts.forEach(f=>{if(norm(f.a)!==target)candidates.push(f.a)});}
+  (q.d||[]).forEach(x=>candidates.push(x));
+  for(const x of shuffle(candidates)){if(!x||norm(x)===target||choices.some(y=>norm(y)===norm(x)))continue;choices.push(x);if(choices.length===3)break}
+  return shuffle([q.a,...choices]);
+ }
+ window.startGlobalMCQ=function(){
+  const mode=state.globalMode||"mixed",pool=buildClearMCQ(mode),box=document.getElementById("globalStartBox"),area=document.getElementById("globalMcqArea");if(!pool.length)return;box.style.display="none";area.style.display="block";
+  let qs=shuffle(pool);const seen=state.seen||{};const key=`clear-${mode}`;seen[key]??=[];let used=new Set(seen[key]);let fresh=qs.filter(q=>!used.has(q.id));if(fresh.length<12){seen[key]=[];fresh=qs;used=new Set()};qs=shuffle(fresh).slice(0,Math.min(12,fresh.length));qs.forEach(q=>seen[key].push(q.id));state.seen=seen;save();
+  let i=0;function draw(){const q=qs[i],opts=clearOptions(q,pool);area.innerHTML=`<div class="q question"><div class="mcq-source">${q.source} · Pregunta ${i+1}/${qs.length}</div><h3>${q.q}</h3><div class="opts">${opts.map(o=>`<button data-o="${encodeURIComponent(o)}">${o}</button>`).join("")}</div><div class="feedback"></div></div>`;area.querySelectorAll(".opts button").forEach(b=>b.onclick=()=>{if(area.querySelector(".correct,.wrong"))return;const ok=norm(decodeURIComponent(b.dataset.o))===norm(q.a);b.classList.add(ok?"correct":"wrong");if(!ok)[...area.querySelectorAll(".opts button")].find(x=>norm(decodeURIComponent(x.dataset.o))===norm(q.a))?.classList.add("correct");area.querySelector(".feedback").textContent=ok?"✅ Correcto.":"❌ Incorrecto. La respuesta correcta es la opción marcada en verde.";count(ok);const wrap=area.querySelector(".q");const next=document.createElement("div");next.className="actions";next.innerHTML=i<qs.length-1?`<button class="btn primary" id="nextMCQ">Siguiente →</button>`:`<span class="status good">🏁 Ronda terminada</span>`;wrap.appendChild(next);next.querySelector("#nextMCQ")?.addEventListener("click",()=>{i++;draw()})})};draw();
+ };
+
+ // Rich case fichas.
+ window.openCase=function(name){const c=Object.values(DATA.cases).flat().find(x=>x.name===name);if(!c)return;openModal(`<div class="casefull"><h2>${c.name}</h2><span class="chip">Clase ${c.class} · ${c.concept}</span><h3>1. Qué pasó</h3><p>${c.what}</p><h3>2. Conflicto jurídico</h3><p>${c.conflict}</p><h3>3. Concepto principal</h3><p><b>${c.key}</b></p><h3>4. Cómo reconocerlo</h3><p>En un caso nuevo, primero identificá el derecho o interés en conflicto. Después identificá la conducta o intervención que genera el problema. Finalmente conectá ese patrón con la doctrina del caso. En un parcial, no alcanza con escribir solamente el nombre.</p></div>`)};
+
+ // Case list renderer, for global Cases page.
+ window.renderCases=function(){const q=norm(document.getElementById("caseSearch")?.value||""),list=Object.values(DATA.cases).flat().filter(c=>norm([c.name,c.concept,c.what,c.conflict,c.key].join(" ")).includes(q));const grid=document.getElementById("caseGrid");if(!grid)return;grid.innerHTML=list.map(c=>`<div class="casecard"><div class="tag">CLASE ${c.class}</div><h3>${c.name}</h3><span class="topic">${c.concept}</span><p><b>Qué pasó:</b> ${c.what}</p><p><b>Conflicto:</b> ${c.conflict}</p><p><strong>Concepto principal:</strong> ${c.key}</p><button class="mini case-v11" data-c="${encodeURIComponent(c.name)}">Abrir explicación completa →</button></div>`).join("");grid.querySelectorAll(".case-v11").forEach(b=>b.onclick=()=>openCase(decodeURIComponent(b.dataset.c)))};
+
+ // Concept renderer: every card is a real button and opens a full ficha.
+ window.renderConcepts=function(){const grid=document.getElementById("conceptGrid");if(!grid)return;const q=norm(document.getElementById("conceptSearch")?.value||"");const prog=DATA.classes.flatMap(c=>c.concepts.map(t=>({term:t,def:`Concepto trabajado en Clase ${c.id}.`,class:c.id,rel:c.title})));const extras=(DATA.extraConcepts||[]).map(x=>({term:x[0],def:x[1],class:/\\d+/.test(x[2])?Number(x[2].match(/\\d+/)[0]):null,rel:x[3]}));const mode=document.querySelector(".concept-tab.active")?.dataset.ctype||"programa";let arr=mode==="extra"?extras:mode==="programa"?prog:[...prog,...extras];const seen=new Set();arr=arr.filter(x=>!seen.has(x.term)&&seen.add(x.term)&&norm(x.term).includes(q));grid.innerHTML=arr.map(x=>`<button class="concept-btn" data-v11concept="${encodeURIComponent(x.term)}"><div class="classcard"><div class="tag">${x.class?`CLASE ${x.class}`:"COMPLEMENTARIO"}</div><h3>${x.term}</h3><p>${x.def}</p><p><b>👆 Abrir ficha</b></p></div></button>`).join("");grid.querySelectorAll("[data-v11concept]").forEach(b=>b.onclick=()=>{const term=decodeURIComponent(b.dataset.v11concept),d=conceptDetails[term]||{};openModal(`<h2>${term}</h2><p>${d.def||"Concepto incorporado al material de estudio."}</p><h3>Dónde aparece</h3><p>${d.rel||"Material de estudio"}</p>${d.class?`<button class="btn primary" onclick="closeModal();openClass(${d.class})">Practicar Clase ${d.class} →</button>`:""}`)})};
+
+ // Case-by-class renderer uses the rich case data.
+ if(typeof renderCasesForClass==="function"){
+  window.renderCasesForClass=function(pool){const area=document.getElementById("classArea");if(!area)return;if(!pool.length){area.innerHTML=`<div class="panel"><p class="muted">Esta clase no tiene un caso jurisprudencial específico en el programa original.</p></div>`;return}area.innerHTML=pool.map(c=>`<div class="casecard"><div class="tag">CASO · CLASE ${c.class}</div><h3>${c.name}</h3><span class="topic">${c.concept}</span><p><b>Qué pasó:</b> ${c.what}</p><p><b>Conflicto:</b> ${c.conflict}</p><p><strong>Concepto principal:</strong> ${c.key}</p><button class="mini case-v11" data-c="${encodeURIComponent(c.name)}">Abrir explicación completa →</button></div>`).join("");area.querySelectorAll(".case-v11").forEach(b=>b.onclick=()=>openCase(decodeURIComponent(b.dataset.c)))};
+ }
+
+ // Build supplemental concepts directly from rich case explanations too.
+ Object.values(DATA.cases).flat().forEach(c=>{if(!conceptDetails[c.name])conceptDetails[c.name]={def:c.what,class:c.class,rel:`${c.concept} · ${c.key}`}});
+ 
+ // Add navigation if it wasn't available in the initial UI.
+ const side=document.querySelector('.nav');if(side&&!side.querySelector('[data-view="process"]')){side.insertAdjacentHTML('beforeend',`<button data-view="process"><span class="n">🏹</span><span class="label">Proceso judicial</span></button><button data-view="sentences"><span class="n">🔎</span><span class="label">Analizar sentencia</span></button>`);side.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>showView(b.dataset.view))}
+ 
+ // Refresh global pages after overriding.
+ renderCases();renderConcepts();renderGlobalModes();renderGlobalMCQ();
+})();
 </script>
 </body>
 </html>
