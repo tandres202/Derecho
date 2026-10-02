@@ -852,37 +852,40 @@ renderPresentations('overview');
   /* Casos: mantener las fichas ricas de v11. */
   DATA.cases={
     "6":[
-      {name:"Marbury v. Madison",class:6,concept:"Control de constitucionalidad",what:"Caso estadounidense asociado al origen del control judicial de constitucionalidad. Se utiliza para estudiar la relación entre supremacía constitucional y la posibilidad de que un juez controle la compatibilidad de una norma con la Constitución.",conflict:"Supremacía constitucional frente a una norma incompatible y papel del juez en ese control.",key:"Control judicial de constitucionalidad."}
+      {name:"Marbury v. Madison",class:6,concept:"Control de constitucionalidad",what:"Caso estadounidense asociado al origen del control judicial de constitucionalidad. En el curso sirve para estudiar la relación entre supremacía constitucional y la posibilidad de que los jueces controlen la compatibilidad de una norma con la Constitución.",conflict:"Supremacía constitucional frente a una norma incompatible y papel del juez en ese control.",key:"Control judicial de constitucionalidad."}
     ],
     "7":[
-      {name:"Sojo",class:7,concept:"Control de constitucionalidad",what:"Caso argentino temprano que se estudia como antecedente del control judicial de constitucionalidad.",conflict:"Papel de los jueces frente a normas o actos incompatibles con la Constitución.",key:"Control de constitucionalidad en Argentina."},
-      {name:"Municipalidad de la Capital c. Elortondo",class:7,concept:"Control de constitucionalidad · legitimidad judicial",what:"Caso argentino estudiado junto con Sojo para analizar el ejercicio judicial del control de constitucionalidad.",conflict:"Compatibilidad de una norma con la Constitución y debate sobre la legitimidad democrática del control judicial.",key:"Control de constitucionalidad y legitimidad judicial."}
+      {name:"Sojo",class:7,concept:"Control de constitucionalidad",what:"Caso argentino temprano que se estudia como antecedente del control judicial de constitucionalidad.",conflict:"Qué puede hacer un juez cuando entiende que una norma o acto no es compatible con la Constitución.",key:"Control de constitucionalidad en Argentina."},
+      {name:"Municipalidad de la Capital c. Elortondo",class:7,concept:"Control de constitucionalidad · legitimidad judicial",what:"Caso argentino estudiado junto con Sojo para analizar el ejercicio judicial del control de constitucionalidad y la posición de los jueces frente a normas inferiores.",conflict:"Compatibilidad de una norma con la Constitución y debate sobre la legitimidad democrática del control judicial.",key:"Control de constitucionalidad y legitimidad judicial."}
     ],
     "8":[
-      {name:"Brown v. Board of Education",class:8,concept:"Interpretación constitucional",what:"Caso sobre segregación racial en escuelas públicas de Estados Unidos. Se utiliza para trabajar cómo interpretar y aplicar la Constitución frente a una situación concreta de igualdad.",conflict:"Cómo entender y aplicar el principio constitucional de igualdad frente a la segregación escolar.",key:"Interpretación constitucional."}
+      {name:"Brown v. Board of Education",class:8,concept:"Interpretación constitucional",what:"Caso sobre segregación racial en escuelas públicas de Estados Unidos. En el curso se utiliza para trabajar cómo interpretar y aplicar la Constitución frente a una situación concreta de igualdad.",conflict:"Cómo debe entenderse y aplicarse el principio constitucional de igualdad ante la segregación escolar.",key:"Interpretación constitucional."}
     ],
     "9":[
-      {name:"Saguir y Dib",class:9,concept:"Interpretación constitucional",what:"Caso de la Corte Suprema utilizado para trabajar problemas de interpretación y aplicación de derechos constitucionales ante un caso concreto.",conflict:"Qué alcance debe darse a una norma constitucional al aplicarla a una situación concreta.",key:"Interpretación constitucional."}
+      {name:"Saguir y Dib",class:9,concept:"Interpretación constitucional",what:"Caso de la Corte Suprema utilizado para trabajar problemas de interpretación y aplicación de derechos constitucionales ante un caso concreto.",conflict:"Qué alcance debe darse a una norma constitucional cuando debe aplicarse a una situación concreta.",key:"Interpretación constitucional."}
     ],
     "11":[
-      {name:"Servini de Cubría",class:11,concept:"Libertad de expresión · censura previa",what:"María Romilda Servini de Cubría pidió que no se emitiera un segmento del programa humorístico de Tato Bores que la involucraba. La medida buscaba impedir la difusión antes de que el contenido saliera al aire.",conflict:"Libertad de expresión frente a una restricción previa de la emisión.",key:"Censura previa."},
-      {name:"S., V. C. c/M., D.A.",class:11,concept:"Privacidad · libertad de prensa",what:"La cobertura periodística de un conflicto de filiación involucraba información referida a una menor.",conflict:"Privacidad de una menor frente a libertad de prensa.",key:"Privacidad y libertad de prensa."},
-      {name:"Olmedo Bustos y otros c. Chile",class:11,concept:"Libertad de expresión · censura previa",what:"La Corte Interamericana analizó la prohibición en Chile de la película La Última Tentación de Cristo.",conflict:"Libertad de pensamiento y expresión frente a la prohibición previa de una película.",key:"Censura previa."},
-      {name:"Editorial Río Negro S.A. c. Neuquén",class:11,concept:"Publicidad oficial · libertad de prensa",what:"El caso se refiere al retiro de publicidad oficial de un diario crítico del gobierno de Neuquén.",conflict:"Libertad de prensa frente a una medida estatal vinculada con publicidad oficial.",key:"Publicidad oficial y afectación indirecta de la libertad de prensa."}
+      {name:"Servini de Cubría",class:11,concept:"Libertad de expresión · censura previa",what:"María Romilda Servini de Cubría pidió que no se emitiera un segmento del programa humorístico de Tato Bores que la involucraba. La medida buscaba impedir la difusión antes de que el contenido saliera al aire.",conflict:"Libertad de expresión frente a una intervención que intenta impedir previamente una emisión.",key:"Censura previa.",aliases:["Tato Bores"]},
+      {name:"S., V. C. c/M., D.A.",class:11,concept:"Privacidad · libertad de prensa",what:"El caso surgió de un juicio de filiación promovido contra un célebre deportista. Se pidió impedir que la prensa difundiera datos que involucraran a la menor. La Corte limitó la protección a los datos que pudieran permitir identificarla.",conflict:"Privacidad de una menor frente a la libertad de prensa; el punto decisivo es la identificación de la menor.",key:"Privacidad de la menor y tutela preventiva.",aliases:["Maradona","caso Maradona","filiación","paternidad"]},
+      {name:"Olmedo Bustos y otros c. Chile",class:11,concept:"Libertad de expresión · censura previa",what:"La Corte Interamericana analizó la prohibición en Chile de la película La Última Tentación de Cristo. La prohibición se estudia como una intervención previa sobre la circulación de una obra audiovisual.",conflict:"Libertad de pensamiento y expresión frente a la prohibición previa de una película.",key:"Censura previa.",aliases:["La Última Tentación de Cristo"]},
+      {name:"Editorial Río Negro S.A. c. Neuquén",class:11,concept:"Publicidad oficial · libertad de prensa",what:"El caso se refiere al retiro de publicidad oficial de un diario crítico del gobierno de Neuquén. Su importancia está en que una autoridad puede afectar la libertad de prensa mediante una medida indirecta, aun sin ordenar que el diario deje de publicar.",conflict:"Libertad de prensa frente a una medida estatal vinculada con la asignación de publicidad oficial.",key:"Publicidad oficial y afectación indirecta de la libertad de prensa."}
     ],
     "12":[
-      {name:"Ponzetti de Balbín",class:12,concept:"Privacidad · libertad de prensa",what:"Se publicó una fotografía de Ricardo Balbín internado en terapia intensiva sin autorización.",conflict:"Privacidad frente a libertad de prensa.",key:"Privacidad."},
-      {name:"Campillay",class:12,concept:"Honor · forma de informar",what:"El caso trata información difundida por medios que podía perjudicar el honor de una persona. La doctrina se ocupa de la forma de presentar determinada información.",conflict:"Honor frente a libertad de prensa.",key:"Doctrina Campillay."},
-      {name:"New York Times v. Sullivan",class:12,concept:"Actual malice · funcionario público",what:"Caso estadounidense sobre publicaciones relacionadas con un funcionario público y afirmaciones falsas sobre su conducta oficial.",conflict:"Libertad de prensa frente a reclamos de funcionarios públicos por afirmaciones falsas.",key:"Actual malice."},
-      {name:"Patitó",class:12,concept:"Crítica · honor · libertad de expresión",what:"Caso sobre críticas periodísticas vinculadas con integrantes del Poder Judicial.",conflict:"Honor frente a crítica pública y libertad de expresión.",key:"Crítica pública y libertad de expresión."}
+      {name:"Ponzetti de Balbín",class:12,concept:"Privacidad · libertad de prensa",what:"Se publicó una fotografía de Ricardo Balbín internado en terapia intensiva sin autorización. El caso enfrenta la protección de la vida privada con la libertad de prensa.",conflict:"Privacidad frente al interés periodístico en publicar una imagen tomada en un ámbito especialmente privado.",key:"Privacidad."},
+      {name:"Campillay",class:12,concept:"Honor · forma de informar",what:"El caso trata sobre información difundida por medios que podía perjudicar el honor de una persona. La doctrina se ocupa de cómo presentar determinada información para evitar una afectación ilegítima.",conflict:"Honor frente a libertad de prensa, con foco en la forma de presentar una acusación o información potencialmente dañosa.",key:"Doctrina Campillay."},
+      {name:"New York Times v. Sullivan",class:12,concept:"Actual malice · funcionario público",what:"Caso de la Corte Suprema de Estados Unidos referido a publicaciones sobre un funcionario público. Se estudia el estándar de actual malice para determinados reclamos por afirmaciones falsas relacionadas con conducta oficial.",conflict:"Libertad de prensa frente a reclamos por afirmaciones falsas relacionadas con funcionarios públicos.",key:"Actual malice."},
+      {name:"Patitó",class:12,concept:"Crítica · honor · libertad de expresión",what:"Caso sobre críticas periodísticas vinculadas con integrantes del Poder Judicial. Se trabaja la tensión entre protección del honor y libertad de expresión, especialmente al discutir asuntos de interés público.",conflict:"Honor frente a la protección de la crítica periodística sobre asuntos de interés público.",key:"Crítica pública y libertad de expresión."}
     ],
     "13":[
-      {name:"Ekmekdjian c. Sofovich",class:13,concept:"Derecho de réplica",what:"Después de expresiones difundidas en televisión que consideró ofensivas para sus convicciones religiosas, Ekmekdjian pidió responder en el mismo medio.",conflict:"Libertad de expresión del medio frente a la pretensión de responder en el mismo medio.",key:"Derecho de réplica."},
-      {name:"Petric",class:13,concept:"Derecho de réplica · límites",what:"Caso utilizado para profundizar el alcance, los requisitos y los límites del derecho de réplica.",conflict:"Cómo delimitar el derecho de réplica para que opere bajo sus condiciones y no como una facultad ilimitada.",key:"Alcance y límites del derecho de réplica."}
-    ],
-    "3":[
-      {name:"Fayt",class:3,concept:"Reforma constitucional · límites de la Convención",what:"La reforma de 1994 incorporó al art. 99 inc. 4 un párrafo sobre la inamovilidad de los jueces federales al alcanzar determinada edad. Según la presentación, la Corte entendió que la modificación era sustancial y que la habilitación dada por el Congreso no alcanzaba suficientemente para que la Convención la incorporara.",conflict:"Alcance de la habilitación del Congreso frente a la actuación de la Convención como poder constituyente derivado.",key:"Criterio restrictivo de Fayt sobre los límites de la Convención reformadora."},
-      {name:"Schiffrin, Leopoldo Héctor c/ Poder Ejecutivo Nacional",class:3,concept:"Reforma constitucional · estándar deferente",what:"La presentación describe al Congreso como órgano que ejerce función pre-constituyente y a la Convención como poder constituyente derivado. También indica que el Poder Judicial debe respetar su legitimidad y, ante dudas, interpretar a favor de la plenitud de sus poderes.",conflict:"Cómo controlar judicialmente a la Convención sin desconocer su legitimidad.",key:"Estándar deferente y abandono de la doctrina Fayt según el material."}
+      {name:"Ekmekdjian c. Sofovich",class:13,concept:"Derecho de réplica",what:"Después de expresiones difundidas en un programa de televisión que consideró ofensivas para sus convicciones religiosas, Ekmekdjian pidió responder en el mismo medio. El caso es central para estudiar el reconocimiento del derecho de réplica bajo determinadas condiciones.",conflict:"Libertad de expresión del medio frente a la pretensión de la persona afectada de responder en el mismo medio.",key:"Derecho de réplica."},
+      {name:"Petric",class:13,concept:"Derecho de réplica · límites",what:"Caso posterior utilizado para profundizar el alcance, los requisitos y los límites del derecho de réplica.",conflict:"Cómo delimitar el derecho de réplica para que opere bajo sus condiciones y no como una facultad ilimitada de publicación.",key:"Alcance y límites del derecho de réplica."}
+    ]
+  };
+
+  DATA.presentationCases={
+    "Presentación 2":[
+      {name:"Fayt",class:"Presentación 2",concept:"Reforma constitucional · límites de la Convención",what:"La reforma de 1994 incorporó al art. 99 inc. 4 un párrafo sobre la inamovilidad de los jueces federales al alcanzar determinada edad. Según la presentación, la Corte entendió que la modificación era sustancial y que la habilitación dada por el Congreso no alcanzaba suficientemente para que la Convención la incorporara.",conflict:"Hasta dónde llega la habilitación del Congreso y qué puede modificar la Convención como poder constituyente derivado.",key:"Control de los límites de la Convención reformadora · criterio restrictivo de Fayt."},
+      {name:"Schiffrin, Leopoldo Héctor c/ Poder Ejecutivo Nacional",class:"Presentación 2",concept:"Reforma constitucional · estándar deferente",what:"Según la presentación, el Congreso ejerce función pre-constituyente y la Convención actúa como poder constituyente derivado. El Poder Judicial debe respetar la legitimidad de la Convención y, ante dudas, interpretar a favor de la plenitud de sus poderes.",conflict:"Cómo controlar judicialmente a una Convención sin desconocer su legitimidad. El material indica que la doctrina Fayt debía ser abandonada y sustituida por un estándar deferente.",key:"Estándar de control deferente; abandono de la doctrina Fayt según el material."}
     ]
   };
 
@@ -1069,31 +1072,47 @@ renderPresentations('overview');
 
   /* Las fichas de casos siguen mostrando qué pasó + conflicto + concepto. */
   window.openCase=function(name){
-    const c=Object.values(DATA.cases).flat().find(x=>x.name===name);
-    if(!c)return;
-    openModal(`<div class="casefull"><h2>${c.name}</h2>
-      <span class="chip">Clase ${c.class} · ${c.concept}</span>
-      <h3>1. Qué pasó</h3><p>${c.what}</p>
-      <h3>2. Conflicto jurídico</h3><p>${c.conflict}</p>
-      <h3>3. Concepto principal</h3><p><b>${c.key}</b></p>
-      <h3>4. Cómo reconocerlo en un caso nuevo</h3>
-      <p>Primero identificá el derecho o interés en conflicto. Después ubicá qué hizo la autoridad o el medio y en qué momento ocurrió. Por último, relacioná ese patrón con la doctrina del caso.</p>
-    </div>`);
+    const c=allCasesOrdered().find(x=>x.name===name);if(!c)return;
+    const aliasNote=(c.aliases||[]).length?`<p class="muted"><b>También podés encontrarlo como:</b> ${(c.aliases||[]).join(" · ")}</p>`:"";
+    openModal(`<div class="casefull"><h2>${c.name}</h2><span class="chip">${typeof c.class==="number"?`Clase ${c.class}`:c.class} · ${c.concept}</span>${aliasNote}<h3>1. Qué pasó</h3><p>${c.what}</p><h3>2. Conflicto jurídico</h3><p>${c.conflict}</p><h3>3. Concepto principal</h3><p><b>${c.key}</b></p><h3>4. Cómo reconocerlo en un parcial</h3><p>Primero identificá el derecho o interés en conflicto. Después ubicá qué hizo la autoridad o el medio y en qué momento ocurrió. Por último, relacioná ese patrón con la doctrina del caso.</p></div>`);
   };
+
+  function allCasesOrdered(){
+    const program=[];
+    Object.keys(DATA.cases||{}).filter(k=>/^\d+$/.test(k)).sort((a,b)=>Number(a)-Number(b)).forEach(k=>{
+      (DATA.cases[k]||[]).forEach(c=>program.push(c));
+    });
+    const presentations=[];
+    Object.values(DATA.presentationCases||{}).forEach(arr=>arr.forEach(c=>presentations.push(c)));
+    return program.concat(presentations);
+  }
 
   window.renderCases=function(){
     const q=norm(document.getElementById("caseSearch")?.value||"");
-    const all=Object.values(DATA.cases).flat();
-    const list=all.filter(c=>norm([c.name,c.concept,c.what,c.conflict,c.key].join(" ")).includes(q));
+    const all=allCasesOrdered();
+    const list=all.filter(c=>norm([c.name,c.concept,c.what,c.conflict,c.key,(c.aliases||[]).join(" ")].join(" ")).includes(q));
     const grid=document.getElementById("caseGrid");
     if(!grid)return;
-    grid.innerHTML=list.map(c=>`<div class="casecard">
-      <div class="tag">CLASE ${c.class}</div><h3>${c.name}</h3><span class="topic">${c.concept}</span>
-      <p><b>Qué pasó:</b> ${c.what}</p><p><b>Conflicto:</b> ${c.conflict}</p>
-      <p><strong>Concepto principal:</strong> ${c.key}</p>
-      <button class="mini case-v12" data-c="${encodeURIComponent(c.name)}">Abrir explicación completa →</button>
-    </div>`).join("");
-    grid.querySelectorAll(".case-v12").forEach(b=>b.onclick=()=>openCase(decodeURIComponent(b.dataset.c)));
+    if(!list.length){grid.innerHTML=`<div class="panel"><p class="muted">No encontré casos con esa búsqueda.</p></div>`;return;}
+
+    const programList=list.filter(c=>typeof c.class==="number");
+    const presList=list.filter(c=>typeof c.class!=="number");
+    let html="";
+    const groups=[...new Set(programList.map(c=>c.class))].sort((a,b)=>a-b);
+    groups.forEach(id=>{
+      const cls=DATA.classes.find(x=>x.id===id);
+      const title=cls?cls.title:`Clase ${id}`;
+      html+=`<div style="grid-column:1/-1;margin-top:8px;padding:10px 4px 3px;border-bottom:2px solid #d5c3a5;"><div class="tag">CLASE ${id}</div><h3 style="margin:4px 0 0;font:700 22px Georgia,serif;color:#294d67">${title}</h3></div>`;
+      programList.filter(c=>c.class===id).forEach(c=>{
+        html+=`<div class="casecard"><div class="tag">CASO · CLASE ${c.class}</div><h3>${c.name}</h3><span class="topic">${c.concept}</span><p><b>Qué pasó:</b> ${c.what}</p><p><b>Conflicto:</b> ${c.conflict}</p><p><strong>Concepto principal:</strong> ${c.key}</p><button class="mini case-v14" data-c="${encodeURIComponent(c.name)}">Abrir explicación completa →</button></div>`;
+      });
+    });
+    if(presList.length){
+      html+=`<div style="grid-column:1/-1;margin-top:18px;padding:10px 4px 3px;border-bottom:2px solid #d5c3a5;"><div class="tag">PRESENTACIONES</div><h3 style="margin:4px 0 0;font:700 22px Georgia,serif;color:#294d67">Casos incorporados en las presentaciones</h3></div>`;
+      presList.forEach(c=>{html+=`<div class="casecard"><div class="tag">${c.class}</div><h3>${c.name}</h3><span class="topic">${c.concept}</span><p><b>Qué pasó:</b> ${c.what}</p><p><b>Conflicto:</b> ${c.conflict}</p><p><strong>Concepto principal:</strong> ${c.key}</p><button class="mini case-v14" data-c="${encodeURIComponent(c.name)}">Abrir explicación completa →</button></div>`;});
+    }
+    grid.innerHTML=html;
+    grid.querySelectorAll(".case-v14").forEach(b=>b.onclick=()=>openCase(decodeURIComponent(b.dataset.c)));
   };
 
   if(typeof window.renderCasesForClass!=="undefined"){
